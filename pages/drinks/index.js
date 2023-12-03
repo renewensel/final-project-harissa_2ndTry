@@ -1,4 +1,4 @@
-import DrinkList from "@/components/DishList";
+import DrinkList from "@/components/DrinkList";
 
 export default function Drinks() {
     return <DrinkList />;

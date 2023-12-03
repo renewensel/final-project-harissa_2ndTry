@@ -1,5 +1,4 @@
 import useSWR from "swr";
-import Link from "next/link";
 
 export default function DrinkList() {
     const { data, isLoading } = useSWR("/api/drinks");
@@ -17,21 +16,14 @@ export default function DrinkList() {
     return (
         <ul>
             {shownDrinks.map((drink) => (
-                <li key={dish.id}>
-                    <Link href={`/${dish._id}`}>{dish.dish}</Link>
-                    <p>{dish.ingredients}</p>
-                    <img src={dish.dishImage} alt={dish.dishImage} width={70} />
-
-                    <p>Meat: {dish.ingredientsIcons.meat.toString()}</p>
-                    <p>
-                        Vegetarian:{" "}
-                        {dish.ingredientsIcons.vegetarian.toString()}
-                    </p>
-                    <p>Vegan: {dish.ingredientsIcons.vegan.toString()}</p>
-
-                    <p>Sweet: {dish.flavour.sweet.toString()}</p>
-                    <p>Spicy: {dish.flavour.spicy.toString()}</p>
-                    <p>Mild: {dish.flavour.mild.toString()}</p>
+                <li key={drink.id}>
+                    <h2>{drink.drink}</h2>
+                    <img
+                        src={drink.drinkImage}
+                        alt={drink.drinkImage}
+                        width={50}
+                    />
+                    <p>{drink.price}€</p>
                 </li>
             ))}
         </ul>
