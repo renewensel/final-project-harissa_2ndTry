@@ -1,11 +1,12 @@
 import DrinkList from "@/components/DrinkList";
-import Header from "@/components/Header";
-import Carousel from "@/components/Carousel";
+import Navigation from "@/components/Navigation";
 
 export default function Drinks() {
     return (
         <>
-            <Header />
+            <div className="container-styles">
+                <Navigation />
+            </div>
             <DrinkList />
         </>
     );

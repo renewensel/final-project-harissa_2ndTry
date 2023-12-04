@@ -1,10 +1,11 @@
 import DishList from "@/components/DishList";
-import Header from "@/components/Header";
-
+import Navigation from "@/components/Navigation";
 export default function Drinks() {
     return (
         <>
-            <Header />
+            <div className="container-styles">
+                <Navigation />
+            </div>
             <DishList />
         </>
     );
