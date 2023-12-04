@@ -1,11 +1,10 @@
-import DishList from "@/components/DishList";
 import Header from "@/components/Header";
 
-export default function Drinks() {
+export default function Imprint() {
     return (
         <>
             <Header />
-            <DishList />
+            <h2>Imprint Page</h2>
         </>
     );
 }

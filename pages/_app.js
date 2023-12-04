@@ -8,7 +8,12 @@ export default function App({ Component, pageProps }) {
     return (
         <>
             <GlobalStyle />
-            <SWRConfig value={{ fetcher }}>
+            <SWRConfig
+                value={{
+                    fetcher,
+                    revalidateOnFocus: false, // Prevent automatic refetching on focus
+                }}
+            >
                 <Component {...pageProps} />
             </SWRConfig>
         </>

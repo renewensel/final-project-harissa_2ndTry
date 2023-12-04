@@ -27,4 +27,7 @@ module.exports = {
             },
         ];
     },
+    images: {
+        domains: ["renewensel.com"],
+    },
 };

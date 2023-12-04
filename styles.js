@@ -31,7 +31,7 @@ export default createGlobalStyle`
     background: var(--color-water-10);
     font-size: larger;
     padding: 0.5rem 1rem;
-    box-shadow: 0px 1px 5px -2px var(--color-granite);
+    /* box-shadow: 0px 1px 5px -2px var(--color-granite); */
   } 
 
   a {
@@ -39,14 +39,18 @@ export default createGlobalStyle`
     display: inline-block;
     color: inherit;
     border: none;
-    background: var(--color-water-10);
+    /* background: var(--color-water-10); */
     font-size: larger;
     padding: 0.5rem 1rem;
-    box-shadow: 0px 1px 5px -2px var(--color-granite);
+    /* box-shadow: 0px 1px 5px -2px var(--color-granite); */
   } 
 
   a:visited {
     color: inherit;
+  }
+
+  a:hover {
+    color: brown;
   }
 
   ul {

@@ -1,4 +1,5 @@
 import useSWR from "swr";
+import Image from "next/image";
 
 export default function DrinkList() {
     const { data, isLoading } = useSWR("/api/drinks");
@@ -18,10 +19,11 @@ export default function DrinkList() {
             {shownDrinks.map((drink) => (
                 <li key={drink.id}>
                     <h2>{drink.drink}</h2>
-                    <img
+                    <Image
                         src={drink.drinkImage}
                         alt={drink.drinkImage}
-                        width={50}
+                        width={40}
+                        height={100}
                     />
                     <p>{drink.price}€</p>
                 </li>
