@@ -1,6 +1,4 @@
-import Carousel from "@/components/Carousel";
 import DishList from "@/components/DishList";
-// import JokeList from "../components/JokeList";
 import DrinkList from "@/components/DrinkList";
 import Header from "@/components/Header";
 import Image from "next/image";
@@ -11,8 +9,7 @@ export default function HomePage() {
             <main className="flex min-h-screen flex-col items-center justify-between p-12">
                 <Header />
                 <div className="min-h-screen flex flex-col items-center justify-center">
-                    <Carousel />
-
+                    bla bla carousel
                     <h1 className="text-4xl font-bold mb-4">
                         Next.js Tailwind Carousel
                     </h1>
@@ -32,7 +29,6 @@ export default function HomePage() {
 
                 <DrinkList />
                 <DishList />
-                {/* <JokeList /> */}
                 <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
                     Footer
                 </div>

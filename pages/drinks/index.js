@@ -6,8 +6,6 @@ export default function Drinks() {
     return (
         <>
             <Header />
-            <Carousel />
-
             <DrinkList />
         </>
     );
