@@ -21,6 +21,9 @@ export default function DishList() {
             <ul>
                 {shownDishes.map((dish) => (
                     <li key={dish.id}>
+                        {dish.flavour.sweet && <p className="badge">Sweet</p>}
+                        {dish.flavour.spicy && <p className="badge">Spicy</p>}
+                        {dish.flavour.mild && <p className="badge">Mild</p>}
                         <Link href={`/${dish._id}`}>{dish.dish}</Link>
                         <p>{dish.ingredients}</p>
 
@@ -44,10 +47,6 @@ export default function DishList() {
                             type="vegan"
                             isTrue={dish.ingredientsIcons.vegan}
                         />
-
-                        <p>Sweet: {dish.flavour.sweet.toString()}</p>
-                        <p>Spicy: {dish.flavour.spicy.toString()}</p>
-                        <p>Mild: {dish.flavour.mild.toString()}</p>
                     </li>
                 ))}
             </ul>
