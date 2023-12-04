@@ -4,13 +4,15 @@ import Image from "next/image";
 export default function Navigation() {
     return (
         <>
-            <Image
-                src="/harissa_logo.svg"
-                alt="Harissa Logo"
-                width={150}
-                height={75}
-                priority
-            />
+            <Link href="/">
+                <Image
+                    src="/harissa_logo.svg"
+                    alt="Harissa Logo"
+                    width={150}
+                    height={75}
+                    priority
+                />
+            </Link>
             <Link href="/">Welcome</Link>
             <Link href="/dishes">Dishes</Link>
             <Link href="/drinks">Drinks</Link>

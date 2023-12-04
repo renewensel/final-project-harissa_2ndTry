@@ -1,3 +1,4 @@
+// pages/index.js
 import Image from "next/image";
 import Navigation from "@/components/Navigation";
 import Page from "@/components/page";
@@ -8,6 +9,8 @@ export default function Home() {
             <div className="container-styles">
                 <Navigation />
             </div>
+
+            <div className="page-mask" />
 
             <div>
                 <h1>Hello there!</h1>

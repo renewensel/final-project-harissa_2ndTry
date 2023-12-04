@@ -1,7 +1,7 @@
 import useSWR from "swr";
 import Link from "next/link";
 import Image from "next/image";
-import Header from "../Header";
+import DishIcon from "./DishIcon.js"; // Import the DishIcon component
 
 export default function DishList() {
     const { data, isLoading } = useSWR("/api/dishes");
@@ -23,6 +23,7 @@ export default function DishList() {
                     <li key={dish.id}>
                         <Link href={`/${dish._id}`}>{dish.dish}</Link>
                         <p>{dish.ingredients}</p>
+
                         <Image
                             src={dish.dishImage}
                             alt={dish.dishImage}
@@ -30,12 +31,19 @@ export default function DishList() {
                             height={70}
                         />
 
-                        <p>Meat: {dish.ingredientsIcons.meat.toString()}</p>
-                        <p>
-                            Vegetarian:{" "}
-                            {dish.ingredientsIcons.vegetarian.toString()}
-                        </p>
-                        <p>Vegan: {dish.ingredientsIcons.vegan.toString()}</p>
+                        {/* Pass boolean values directly to DishIcon */}
+                        <DishIcon
+                            type="meat"
+                            isTrue={dish.ingredientsIcons.meat}
+                        />
+                        <DishIcon
+                            type="vegetarian"
+                            isTrue={dish.ingredientsIcons.vegetarian}
+                        />
+                        <DishIcon
+                            type="vegan"
+                            isTrue={dish.ingredientsIcons.vegan}
+                        />
 
                         <p>Sweet: {dish.flavour.sweet.toString()}</p>
                         <p>Spicy: {dish.flavour.spicy.toString()}</p>

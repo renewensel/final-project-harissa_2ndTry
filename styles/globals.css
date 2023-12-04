@@ -1,4 +1,5 @@
 :root {
+    --background-color: #e6d3b0;
 }
 
 * {
@@ -12,10 +13,9 @@ html,
 body {
     width: 100vw;
     height: 100vh;
-    padding: 2rem;
-
+    padding: 1rem;
     font-size: 1rem;
-    background-color: #e6d3b0;
+    background-color: var(--background-color);
 }
 
 header {
@@ -54,6 +54,7 @@ h1 {
 }
 
 .slide-in {
+    z-index: 1; /* Updated z-index */
     position: absolute;
     top: 0;
     left: 0;
@@ -64,13 +65,14 @@ h1 {
 }
 
 .slide-out {
+    z-index: 1; /* Updated z-index */
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
     background-color: #24211b;
-    transform-origin: bottom;
+    transform-origin: top;
 }
 
 .container-styles {
@@ -81,4 +83,32 @@ h1 {
     justify-content: flex-start;
     align-items: center;
     gap: 2rem;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 50vw;
+    height: 50vh;
+    object-fit: cover;
+}
+
+.swiper {
+    margin-left: auto;
+    margin-right: auto;
 }
