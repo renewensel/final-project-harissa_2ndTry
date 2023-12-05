@@ -1,17 +1,14 @@
 import DishList from "@/components/DishList";
 import Navigation from "@/components/Navigation";
-export default function Drinks() {
+import Page from "@/components/page";
+
+export default function Dishes() {
     return (
         <>
-            <div className="container-styles">
-                <Navigation />
-            </div>
-            <div className="content-container">
-                <div className="drink-list-container">
-                    <h2>Menu from 27. Nov. - 01. Dec.</h2>
-                    <DishList />
-                </div>
-            </div>
+            <Navigation className="header" />
+            <h5>Menu from 27. Nov. - 01. Dec.</h5>
+            <DishList />
+            <div className="container-styles">test</div>
         </>
     );
 }

@@ -115,7 +115,7 @@ h1 {
 
 .drink-list-container {
     display: flex;
-    height: 80vh;
+    height: 70vh;
     flex-direction: row;
     align-items: center;
     justify-content: center;

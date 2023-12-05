@@ -4,11 +4,11 @@ import Navigation from "@/components/Navigation";
 export default function Drinks() {
     return (
         <>
+            <Navigation className="header" />
+            <DrinkList />
+
             <div className="container-styles">
-                <Navigation />
-            </div>
-            <div className="content-container">
-                <DrinkList />
+                <div className="content-container">test</div>
             </div>
         </>
     );
