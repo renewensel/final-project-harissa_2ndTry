@@ -6,7 +6,12 @@ export default function Drinks() {
             <div className="container-styles">
                 <Navigation />
             </div>
-            <DishList />
+            <div className="content-container">
+                <div className="drink-list-container">
+                    <h2>Menu from 27. Nov. - 01. Dec.</h2>
+                    <DishList />
+                </div>
+            </div>
         </>
     );
 }
