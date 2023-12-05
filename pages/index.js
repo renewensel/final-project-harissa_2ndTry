@@ -7,22 +7,21 @@ export default function Home() {
     return (
         <Page>
             <div className="container-styles">
-                <Navigation />
+                <Navigation className="header" />
             </div>
 
-            <div className="page-mask" />
-
-            <div>
-                <h1>Hello there!</h1>
-                <Image
-                    src="http://renewensel.com/fphar/images/dishes_01.png"
-                    width={500}
-                    height={500}
-                    alt="Picture dish 1 of 4"
-                    priority
-                />
+            <div className="content-container">
+                <div>
+                    <h1>Hello there!</h1>
+                    <Image
+                        src="http://renewensel.com/fphar/images/dishes_01.png"
+                        width={500}
+                        height={500}
+                        alt="Picture dish 1 of 4"
+                        priority
+                    />
+                </div>
             </div>
-
             <div>Footer</div>
         </Page>
     );

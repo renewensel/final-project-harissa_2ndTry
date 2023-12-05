@@ -8,8 +8,8 @@ export default function Navigation() {
                 <Image
                     src="/harissa_logo.svg"
                     alt="Harissa Logo"
-                    width={150}
-                    height={75}
+                    width={180}
+                    height={90}
                     priority
                 />
             </Link>
