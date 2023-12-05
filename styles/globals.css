@@ -20,7 +20,9 @@ body {
     height: 100vh;
     padding: 1rem;
     font-size: 1rem;
+    background: url("../public/harissa_background.jpg") fixed;
     background-color: var(--background-color);
+    background-size: cover; /* Resize the background image to cover the entire container */
 }
 
 header {
@@ -109,13 +111,14 @@ h1 {
 .drink-list-box {
     width: 600px;
     list-style-type: none;
-    padding-left: 0; /* Adjust padding to remove default list padding */
+    padding-left: 2rem;
 }
 
 .list {
     display: flex;
     justify-content: space-between;
-    font-size: 1rem;
+    font-size: 1.4;
+    font-weight: 400;
     line-height: 2rem;
 }
 
@@ -132,12 +135,12 @@ h1 {
 }
 
 .list:not(:last-of-type) {
-    border-bottom: 1px solid var(--color-first);
+    border-bottom: 1px solid #b6ad9c;
 }
 
 .image-container {
-    width: 40px; /* Adjusted to match the Image width */
-    height: 100px; /* Set your desired fixed height for the image */
+    width: 80px; /* Adjusted to match the Image width */
+    height: 200px; /* Set your desired fixed height for the image */
     margin-right: 16px; /* Adjust margin as needed */
 }
 
@@ -147,13 +150,10 @@ h1 {
     object-fit: cover; /* Maintain aspect ratio and cover the container */
 }
 
-ul.alternating-colors {
-    li:nth-child(odd):before {
-        border-color: #0bad02;
-    }
-    li:nth-child(even):before {
-        border-color: #2378d5;
-    }
+.drink-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.07rem;
 }
 
 /* carousel styling welcome page */

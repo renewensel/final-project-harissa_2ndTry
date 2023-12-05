@@ -21,8 +21,8 @@ export default function Home() {
                         priority
                     />
                 </div>
+                <div>Footer</div>
             </div>
-            <div>Footer</div>
         </Page>
     );
 }

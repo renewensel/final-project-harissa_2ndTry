@@ -61,7 +61,7 @@ export default function DrinkList() {
                                     height={100}
                                 />
                             </div> */}
-                            <h2>{drink.drink}</h2>
+                            <p className="drink-name">{drink.drink}</p>
                             <p>{drink.price}€</p>
                         </li>
                     ))}
