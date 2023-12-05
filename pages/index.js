@@ -1,13 +1,28 @@
-import DishList from "@/components/DrinkList";
-import JokeList from "../components/JokeList";
-import DrinkList from "@/components/DishList";
+// pages/index.js
+import Image from "next/image";
+import Navigation from "@/components/Navigation";
+import Page from "@/components/page";
 
-export default function HomePage() {
+export default function Home() {
     return (
-        <>
-            <DrinkList />
-            <DishList />
-            <JokeList />
-        </>
+        <Page>
+            <div className="container-styles">
+                <Navigation className="header" />
+            </div>
+
+            <div className="content-container">
+                <div>
+                    <h1>Hello there!</h1>
+                    <Image
+                        src="http://renewensel.com/fphar/images/dishes_01.png"
+                        width={500}
+                        height={500}
+                        alt="Picture dish 1 of 4"
+                        priority
+                    />
+                </div>
+                <div>Footer</div>
+            </div>
+        </Page>
     );
 }

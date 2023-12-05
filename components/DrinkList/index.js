@@ -1,31 +1,72 @@
 import useSWR from "swr";
+import Image from "next/image";
+import { useState } from "react";
 
 export default function DrinkList() {
-    const { data, isLoading } = useSWR("/api/drinks");
+    const { data, error } = useSWR("/api/drinks");
+    const [hoveredDrink, setHoveredDrink] = useState(null);
 
-    if (isLoading) {
-        return <h1>Loading...</h1>;
+    if (error) {
+        return <div>Error loading data</div>;
     }
 
     if (!data) {
-        return null;
+        return <div>Loading...</div>;
     }
 
     const shownDrinks = data.filter((drink) => drink.isShown);
 
+    // Get the first drink to show by default
+    const defaultDrink = shownDrinks[0];
+
     return (
-        <ul>
-            {shownDrinks.map((drink) => (
-                <li key={drink.id}>
-                    <h2>{drink.drink}</h2>
-                    <img
-                        src={drink.drinkImage}
-                        alt={drink.drinkImage}
-                        width={50}
-                    />
-                    <p>{drink.price}€</p>
-                </li>
-            ))}
-        </ul>
+        <>
+            <div className="drink-list-container">
+                {/* Show the first image by default only if there's no hover */}
+                {!hoveredDrink && (
+                    <div className="hovered-drink-image">
+                        <Image
+                            src={defaultDrink.drinkImage}
+                            alt={defaultDrink.drinkImage}
+                            width={100}
+                            height={260}
+                        />
+                    </div>
+                )}
+
+                {hoveredDrink && (
+                    <div className="hovered-drink-image">
+                        <Image
+                            src={hoveredDrink.drinkImage}
+                            alt={hoveredDrink.drinkImage}
+                            width={100}
+                            height={260}
+                        />
+                    </div>
+                )}
+
+                <ul className="drink-list-box">
+                    {shownDrinks.map((drink) => (
+                        <li
+                            key={drink.id}
+                            className="list"
+                            onMouseEnter={() => setHoveredDrink(drink)}
+                            onMouseLeave={() => setHoveredDrink(null)}
+                        >
+                            {/* <div className="image-container">
+                                <Image
+                                    src={drink.drinkImage}
+                                    alt={drink.drinkImage}
+                                    width={40}
+                                    height={100}
+                                />
+                            </div> */}
+                            <p className="drink-name">{drink.drink}</p>
+                            <p>{drink.price}€</p>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </>
     );
 }

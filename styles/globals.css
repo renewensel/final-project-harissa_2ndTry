@@ -1,17 +1,186 @@
-/* styles/globals.css */
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import url("https://fonts.googleapis.com/css2?family=Gentium+Book+Basic&display=swap");
 
 :root {
-    --color-nemo: #ff4a11;
-    --color-granite: #252629;
-    --color-water-10: #f3f5f9;
-    --color-foam: #ffffff;
-    --gap: 20px;
+    --color-first: #57534c;
+    --background-color: #e6d3b0;
+}
+
+* {
+    color: var(--color-first);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 /* Other global styles */
 body {
-    background-color: grey;
+    font-family: "Gentium Book Basic", serif;
+    color: var(--color-first);
+    width: 100vw;
+    height: 100vh;
+    padding: 1rem;
+    font-size: 1rem;
+    background: url("../public/harissa_background.jpg") fixed;
+    background-color: var(--background-color);
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+header {
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+header .header-items {
+    display: flex;
+}
+
+header .header-items .header-item,
+.logo {
+    padding: 1rem 2rem;
+}
+
+.content-container {
+    align-items: center;
+}
+
+a {
+    font-weight: 500;
+    letter-spacing: 0.08rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    gap: 1rem;
+}
+
+h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 100px;
+    line-height: 90%;
+}
+
+.slide-in,
+.slide-out {
+    z-index: 1; /* Updated z-index */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #24211b;
+    transform-origin: bottom;
+}
+
+.container-styles {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+}
+
+.badge {
+    width: 70px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.08rem;
+    color: grey;
+    padding: 2px 2px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px grey solid;
+    text-transform: uppercase;
+}
+
+.drink-list-container {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: flex-start; /* Adjust alignment as needed */
+    justify-content: center;
+}
+
+.drink-list-box {
+    width: 600px;
+    list-style-type: none;
+    padding-left: 2rem;
+}
+
+.list {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.4;
+    font-weight: 400;
+    line-height: 2rem;
+}
+
+.list:hover {
+    background-color: rgba(156, 145, 129, 0.287);
+}
+
+.list:before {
+    content: "";
+    display: block;
+    height: 12px;
+    width: 12px;
+    position: absolute;
+}
+
+.list:not(:last-of-type) {
+    border-bottom: 1px solid #b6ad9c;
+}
+
+.image-container {
+    width: 80px; /* Adjusted to match the Image width */
+    height: 200px; /* Set your desired fixed height for the image */
+    margin-right: 16px; /* Adjust margin as needed */
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+}
+
+.drink-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.07rem;
+}
+
+/* carousel styling welcome page */
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 50vw;
+    height: 50vh;
+    object-fit: cover;
+}
+
+.swiper {
+    margin-left: auto;
+    margin-right: auto;
 }
