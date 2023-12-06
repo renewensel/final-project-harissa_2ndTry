@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
+// import DishList from "../DishList";
 
 // Import Swiper styles
 import "swiper/css";
@@ -37,6 +38,7 @@ export default function SwiperSlider() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="swiper-slide-style">
+                        {/* <DishList /> */}
                         <h2>picture of the place and some infos</h2>
                         <Image
                             src="http://renewensel.com/fphar/images/dishes_02.png"

@@ -7,7 +7,6 @@ export default function Dishes() {
         <>
             <Navigation className="header" />
             <DishList />
-            <div className="container-styles">test</div>
         </>
     );
 }

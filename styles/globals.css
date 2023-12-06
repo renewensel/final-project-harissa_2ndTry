@@ -3,6 +3,7 @@
 :root {
     --color-first: #57534c;
     --background-color: #e6d3b0;
+    --swiper-theme-color: #ce0d1b;
 }
 
 * {
