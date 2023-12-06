@@ -26,7 +26,22 @@ export default function Home() {
                 </div>
             </div>
             <Link href={"/dishes"} alt="weekly-menu">
-                Menu from 27. Nov. - 01. Dec.
+                <span
+                    style={{
+                        fontFamily: "Arial",
+                        fontSize: "0.8rem",
+                        fontWeight: "300",
+                    }}
+                >
+                    ➔ &nbsp;Menu from{" "}
+                </span>
+                <span
+                    style={{
+                        fontWeight: "600",
+                    }}
+                >
+                    &nbsp; 27. Nov. - 01. Dec.
+                </span>
             </Link>
         </Page>
     );

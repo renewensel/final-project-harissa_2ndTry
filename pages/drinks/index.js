@@ -7,9 +7,9 @@ export default function Drinks() {
             <Navigation className="header" />
             <DrinkList />
 
-            <div className="container-styles">
+            {/* <div className="container-styles">
                 <div className="content-container">test</div>
-            </div>
+            </div> */}
         </>
     );
 }

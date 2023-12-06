@@ -3,6 +3,8 @@
 :root {
     --color-first: #57534c;
     --background-color: #e6d3b0;
+    --swiper-navigation-color: #ce0d1b;
+    --swiper-pagination-color: #ce0d1b;
 }
 
 * {
@@ -22,7 +24,7 @@ body {
     font-size: 1rem;
     background: url("../public/harissa_background.jpg") fixed;
     background-color: var(--background-color);
-    background-size: cover; /* Resize the background image to cover the entire container */
+    /* background-size: cover;  */
 }
 
 .hidden {
@@ -233,4 +235,5 @@ p.badge {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0rem 6rem;
 }

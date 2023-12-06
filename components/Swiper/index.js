@@ -2,6 +2,8 @@ import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
+import Link from "next/link";
+// import DishList from "../DishList";
 
 // Import Swiper styles
 import "swiper/css";
@@ -26,17 +28,31 @@ export default function SwiperSlider() {
                 <SwiperSlide>
                     {/* <div className="content-container"> */}
                     <div className="swiper-slide-style">
-                        <h2>Hello there - Welcome Message with picture</h2>
+                        <div>
+                            <p className="badge">Sweet</p>
+                            <h2>Hello there - Welcome Message with picture</h2>
+                            <p className="dish-li">
+                                Lamb, bell peppers, onions, spices, yogurt sauce
+                            </p>
+                            <Image src="/meat.png" width={30} height={30} />
+                            <br />
+                            <Link href={"/dishes"} alt="weekly-menu">
+                                ➔ Menu from 27. Nov. - 01. Dec.
+                            </Link>
+                        </div>
+
                         <Image
                             src="http://renewensel.com/fphar/images/dishes_01.png"
                             width={500}
                             height={500}
                         />
                     </div>
+
                     {/* </div> */}
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="swiper-slide-style">
+                        {/* <DishList /> */}
                         <h2>picture of the place and some infos</h2>
                         <Image
                             src="http://renewensel.com/fphar/images/dishes_02.png"
