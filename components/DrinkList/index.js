@@ -62,7 +62,7 @@ export default function DrinkList() {
                                 />
                             </div> */}
                             <p className="drink-name">{drink.drink}</p>
-                            <p>{drink.price}€</p>
+                            <p className="drink-price">{drink.price}€</p>
                         </li>
                     ))}
                 </ul>

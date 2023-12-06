@@ -1,12 +1,13 @@
 import DishList from "@/components/DishList";
 import Navigation from "@/components/Navigation";
-export default function Drinks() {
+import Page from "@/components/page";
+
+export default function Dishes() {
     return (
         <>
-            <div className="container-styles">
-                <Navigation />
-            </div>
+            <Navigation className="header" />
             <DishList />
+            <div className="container-styles">test</div>
         </>
     );
 }
