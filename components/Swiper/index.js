@@ -24,32 +24,34 @@ export default function SwiperSlider() {
                 className={styles.mySwiper}
             >
                 <SwiperSlide>
-                    <div className="content-container">
+                    {/* <div className="content-container"> */}
+                    <div className="swiper-slide-style">
                         <h2>Hello there - Welcome Message with picture</h2>
                         <Image
                             src="http://renewensel.com/fphar/images/dishes_01.png"
-                            width={200}
-                            height={200}
+                            width={500}
+                            height={500}
                         />
                     </div>
+                    {/* </div> */}
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="content-container">
+                    <div className="swiper-slide-style">
                         <h2>picture of the place and some infos</h2>
                         <Image
                             src="http://renewensel.com/fphar/images/dishes_02.png"
-                            width={200}
-                            height={200}
+                            width={500}
+                            height={500}
                         />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="content-container">
+                    <div className="swiper-slide-style">
                         <h2>maybe google maps shit</h2>
                         <Image
                             src="http://renewensel.com/fphar/images/dishes_03.png"
-                            width={200}
-                            height={200}
+                            width={500}
+                            height={500}
                         />
                         <h2>maybe google maps shit</h2>
                     </div>

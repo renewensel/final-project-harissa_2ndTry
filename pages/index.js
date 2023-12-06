@@ -3,11 +3,12 @@ import Image from "next/image";
 import SwiperSlider from "@/components/Swiper";
 import Navigation from "@/components/Navigation";
 import Page from "@/components/page";
+import Link from "next/link";
 
 export default function Home() {
     return (
         <Page>
-            <div>
+            <div className="content-container">
                 <Navigation className="header" />
             </div>
 
@@ -23,8 +24,10 @@ export default function Home() {
                         priority
                     /> */}
                 </div>
-                {/* <div>Footer</div> */}
             </div>
+            <Link href={"/dishes"} alt="weekly-menu">
+                Menu from 27. Nov. - 01. Dec.
+            </Link>
         </Page>
     );
 }
