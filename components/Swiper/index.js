@@ -3,6 +3,7 @@ import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import Link from "next/link";
+// import DishItemOne from "../DishItemOne/DishItemOne";
 // import DishList from "../DishList";
 
 // Import Swiper styles
@@ -29,6 +30,10 @@ export default function SwiperSlider() {
                     {/* <div className="content-container"> */}
                     <div className="swiper-slide-style">
                         <div>
+                            <h1 className="dish-h1">
+                                Healthy, fast, convenient and inexpensive.
+                                Different dishes every week
+                            </h1>
                             <p className="badge">Sweet</p>
                             <h2>Hello there - Welcome Message with picture</h2>
                             <p className="dish-li">
@@ -63,13 +68,19 @@ export default function SwiperSlider() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="swiper-slide-style">
-                        <h2>maybe google maps shit</h2>
+                        <h3>
+                            Arabic / Mediterranean style Dishes Healthy
+                            colourful meals Multiple options
+                        </h3>
                         <Image
                             src="http://renewensel.com/fphar/images/dishes_03.png"
                             width={500}
                             height={500}
                         />
-                        <h2>maybe google maps shit</h2>
+                        <h3>
+                            different dishes every week vegetarian / vegan
+                            Option
+                        </h3>
                     </div>
                 </SwiperSlide>
             </Swiper>

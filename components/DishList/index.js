@@ -1,7 +1,7 @@
 import useSWR from "swr";
-import Link from "next/link";
 import Image from "next/image";
-import DishIcon from "./DishIcon.js"; // Import the DishIcon component
+import DishIcon from "./DishIcon.js";
+import { getRandomDateInCurrentWeek } from "./getRandomDateInCurrentWeek"; // Correct import statement
 
 export default function DishList() {
     const { data, isLoading } = useSWR("/api/dishes");
@@ -22,9 +22,25 @@ export default function DishList() {
     // Take only the first 4 dishes
     const firstFourDishes = shuffledDishes.slice(0, 4);
 
+    // Move the dateRange calculation inside the component
+    const { startOfWeek, endOfWeek } = getRandomDateInCurrentWeek();
+    const formattedStartDate = startOfWeek?.toLocaleDateString("en-US", {
+        weekday: "short",
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+    });
+    const formattedEndDate = endOfWeek?.toLocaleDateString("en-US", {
+        weekday: "short",
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+    });
+    const dateRange = `${formattedStartDate} - ${formattedEndDate}`;
+
     return (
         <>
-            <h5>Menu from 27. Nov. - 01. Dec.</h5>
+            <h5>Menu from {dateRange}</h5>
 
             <div className="dish-list-container">
                 <ul>

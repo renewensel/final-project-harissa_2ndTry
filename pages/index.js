@@ -4,8 +4,24 @@ import SwiperSlider from "@/components/Swiper";
 import Navigation from "@/components/Navigation";
 import Page from "@/components/page";
 import Link from "next/link";
+import { getRandomDateInCurrentWeek } from "@/components/DishList/getRandomDateInCurrentWeek";
 
 export default function Home() {
+    // Move the dateRange calculation inside the component
+    const { startOfWeek, endOfWeek } = getRandomDateInCurrentWeek();
+    const formattedStartDate = startOfWeek?.toLocaleDateString("en-US", {
+        weekday: "short",
+        // year: "numeric",
+        month: "short",
+        day: "numeric",
+    });
+    const formattedEndDate = endOfWeek?.toLocaleDateString("en-US", {
+        weekday: "short",
+        // year: "numeric",
+        month: "short",
+        day: "numeric",
+    });
+    const dateRange = `${formattedStartDate} - ${formattedEndDate}`;
     return (
         <Page>
             <div className="content-container">
@@ -37,10 +53,11 @@ export default function Home() {
                 </span>
                 <span
                     style={{
+                        fontFamily: "Arial",
                         fontWeight: "600",
                     }}
                 >
-                    &nbsp; 27. Nov. - 01. Dec.
+                    {dateRange}
                 </span>
             </Link>
         </Page>
