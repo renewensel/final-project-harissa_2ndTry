@@ -164,7 +164,8 @@ h1 {
 }
 
 .drink-name,
-.drink-price {
+.drink-price,
+.dish-price {
     font-family: Georgia, "Times New Roman", Times, serif;
     font-size: 1.1rem;
     font-weight: 700;
@@ -224,11 +225,11 @@ p.badge {
 }
 
 .weekly-menu {
+    font-family: Arial, Helvetica, sans-serif;
     text-decoration: underline;
     z-index: 99;
     transform: translateY(-3rem);
-    font-size: 1rem;
-    font-family: "Gentium Book Basic", serif;
+    font-size: 0.9rem;
 }
 
 .swiper-slide-style {
@@ -236,4 +237,9 @@ p.badge {
     align-items: center;
     justify-content: center;
     padding: 0rem 6rem;
+}
+
+.dish-h1 {
+    font-size: 2rem;
+    opacity: 15%;
 }
