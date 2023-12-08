@@ -42,13 +42,12 @@ module.exports = withTM({
                 headers: [
                     {
                         key: "Content-Security-Policy",
-                        value: "default-src 'self'; script-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: tile.openstreetmap.org leafletjs.com *.tile.openstreetmap.org *.tile.osm.org *.openstreetmap.org;",
+                        value: "default-src 'self'; script-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: renewensel.com tile.openstreetmap.org leafletjs.com *.tile.openstreetmap.org *.tile.osm.org *.openstreetmap.org; font-src 'self' https://fonts.gstatic.com;",
                     },
                 ],
             },
         ];
     },
-    // Remove the domains from the images configuration
     images: {
         domains: ["renewensel.com"],
     },
