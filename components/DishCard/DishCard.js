@@ -43,15 +43,6 @@ export default function DishCard() {
 
     return (
         <>
-            {/* <div>
-                <DishCard2 style={{ maxWidth: "200px" }} />
-
-                <DishCard2 style={{ maxWidth: "200px" }} />
-
-                <DishCard2 style={{ maxWidth: "200px" }} />
-
-                <DishCard2 style={{ maxWidth: "200px" }} />
-            </div> */}
             <div className="dish-list-container">
                 <div className="dish-image-zIndex">
                     {!hoveredDish && (
@@ -59,8 +50,8 @@ export default function DishCard() {
                             <Image
                                 src={defaultDish.dishImage}
                                 alt={defaultDish.dishImage}
-                                width={500}
-                                height={500}
+                                width={700}
+                                height={700}
                             />
                         </div>
                     )}
@@ -71,59 +62,84 @@ export default function DishCard() {
                         <Image
                             src={hoveredDish.dishImage}
                             alt={hoveredDish.dishImage}
-                            width={500}
-                            height={500}
+                            width={700}
+                            height={700}
                         />
                     </div>
                 )}
 
                 <ul className="dish-list-box">
-                    {limitedDishes.map((dish) => (
-                        <li
-                            key={dish.id}
-                            className="list dish-li"
-                            onMouseEnter={() => setHoveredDish(dish)}
-                            onMouseLeave={() => setHoveredDish(null)}
-                        >
-                            <div>
-                                {dish.flavour.sweet && (
-                                    <p className="badge">Sweet</p>
-                                )}
-                                {dish.flavour.spicy && (
-                                    <p className="badge">Spicy</p>
-                                )}
-                                {dish.flavour.mild && (
-                                    <p className="badge">Mild</p>
-                                )}
-                                <div className="dish-list-icon">
-                                    <DishIcon
-                                        type="meat"
-                                        isTrue={dish.ingredientsIcons.meat}
-                                    />
-                                    <DishIcon
-                                        type="vegetarian"
-                                        isTrue={
-                                            dish.ingredientsIcons.vegetarian
-                                        }
-                                    />
-                                    <DishIcon
-                                        type="vegan"
-                                        isTrue={dish.ingredientsIcons.vegan}
-                                    />
+                    <div>
+                        <h4 href={"/dishes"} alt="weekly-menu">
+                            <span
+                                style={{
+                                    fontFamily: "Arial",
+                                    fontSize: "1.1rem",
+                                    fontWeight: "300",
+                                }}
+                            >
+                                ➔ &nbsp;Menu from{" "}
+                            </span>
+                            <span
+                                style={{
+                                    fontFamily: "Arial",
+                                    fontSize: "1.1rem",
+                                    fontWeight: "600",
+                                }}
+                            >
+                                {dateRange}
+                            </span>
+                        </h4>
+                    </div>
+                    <div>
+                        {limitedDishes.map((dish) => (
+                            <li
+                                key={dish.id}
+                                className="list dish-li"
+                                onMouseEnter={() => setHoveredDish(dish)}
+                                onMouseLeave={() => setHoveredDish(null)}
+                            >
+                                <div>
+                                    {dish.flavour.sweet && (
+                                        <p className="badge">Sweet</p>
+                                    )}
+                                    {dish.flavour.spicy && (
+                                        <p className="badge">Spicy</p>
+                                    )}
+                                    {dish.flavour.mild && (
+                                        <p className="badge">Mild</p>
+                                    )}
                                 </div>
-                            </div>
 
-                            <div className="dish-list-name-ingredients-spaces">
-                                <p className="dishes-dish-name">{dish.dish}</p>
-                                <p className="dish-ingredients">
-                                    {dish.ingredients}
-                                </p>
-                            </div>
-                            <div className="dish-price">
-                                <p>5,90€</p>
-                            </div>
-                        </li>
-                    ))}
+                                <div className="dish-list-name-ingredients-spaces">
+                                    <p className="dishes-dish-name">
+                                        {dish.dish}&nbsp;
+                                        <DishIcon
+                                            type="meat"
+                                            isTrue={dish.ingredientsIcons.meat}
+                                        />
+                                        <DishIcon
+                                            type="vegetarian"
+                                            isTrue={
+                                                dish.ingredientsIcons.vegetarian
+                                            }
+                                        />
+                                        <DishIcon
+                                            type="vegan"
+                                            isTrue={dish.ingredientsIcons.vegan}
+                                        />
+                                    </p>
+
+                                    <p className="dish-ingredients">
+                                        {dish.ingredients}
+                                    </p>
+                                </div>
+                                <div className="dish-price">
+                                    <p>5,90€</p>
+                                </div>
+                            </li>
+                        ))}
+                    </div>
                 </ul>
             </div>
         </>

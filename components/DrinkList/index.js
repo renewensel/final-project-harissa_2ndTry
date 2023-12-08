@@ -39,8 +39,8 @@ export default function DrinkList() {
                         <Image
                             src={hoveredDrink.drinkImage}
                             alt={hoveredDrink.drinkImage}
-                            width={100}
-                            height={260}
+                            width={190}
+                            height={500}
                         />
                     </div>
                 )}

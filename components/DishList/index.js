@@ -1,8 +1,8 @@
 import useSWR from "swr";
 import Image from "next/image";
 import DishIcon from "./DishIcon.js";
-import { getRandomDateInCurrentWeek } from "./getRandomDateInCurrentWeek"; // Correct import statement
 import DishCard from "../DishCard/DishCard.js";
+import { getRandomDateInCurrentWeek } from "./getRandomDateInCurrentWeek.js";
 
 export default function DishList() {
     const { data, isLoading } = useSWR("/api/dishes");
