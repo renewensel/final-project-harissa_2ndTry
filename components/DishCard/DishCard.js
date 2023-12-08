@@ -1,29 +1,36 @@
 import useSWR from "swr";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getRandomDateInCurrentWeek } from "../DishList/getRandomDateInCurrentWeek";
 import DishIcon from "../DishList/DishIcon";
 
 export default function DishCard() {
     const { data, error } = useSWR("/api/dishes");
     const [hoveredDish, setHoveredDish] = useState(null);
+    const [limitedDishes, setLimitedDishes] = useState([]);
+
+    useEffect(() => {
+        if (data) {
+            // Filter out only the dishes that should be shown
+            const shownDishes = data.filter((dish) => dish.isShown);
+
+            // Shuffle the array of shown dishes
+            const shuffledDishes = shuffleArray(shownDishes);
+
+            // Limit the number of dishes to be shown to 4
+            const limited = shuffledDishes.slice(0, 4);
+
+            setLimitedDishes(limited);
+        }
+    }, [data]);
 
     if (error) {
         return <div>Error loading data</div>;
     }
 
-    if (!data) {
+    if (!data || limitedDishes.length === 0) {
         return <div>Loading...</div>;
     }
-
-    // Filter out only the dishes that should be shown
-    const shownDishes = data.filter((dish) => dish.isShown);
-
-    // Shuffle the array of shown dishes
-    const shuffledDishes = shuffleArray(shownDishes);
-
-    // Limit the number of dishes to be shown to 4
-    const limitedDishes = shuffledDishes.slice(0, 4);
 
     // Get the default dish (the first one in the limitedDishes array)
     const defaultDish = limitedDishes[0];
@@ -48,7 +55,7 @@ export default function DishCard() {
         <>
             <div className="dish-list-container">
                 <div className="dish-image-zIndex">
-                    {!hoveredDish && (
+                    {!hoveredDish && limitedDishes.length > 0 && (
                         <div className="default-dish-image">
                             <Image
                                 src={defaultDish.dishImage}
