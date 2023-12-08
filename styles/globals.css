@@ -21,7 +21,7 @@ body {
     width: 100%;
     height: 100%;
     padding: 1rem;
-    font-size: 1rem;
+    font-size: 1.4rem;
     background: url("../public/harissa_background.jpg") fixed;
     background-color: var(--background-color);
     /* background-size: cover;  */
@@ -114,7 +114,7 @@ h1 {
 
 .drink-list-container {
     display: flex;
-    height: 70vh;
+    height: 75vh;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -122,17 +122,18 @@ h1 {
 }
 
 .drink-list-box {
-    width: 600px;
+    width: 700px;
     list-style-type: none;
-    padding-left: 2rem;
+    padding-left: 3rem;
 }
 
 .list {
-    display: flex;
+    list-style-type: none;
+    /* display: flex;
     justify-content: space-between;
     font-size: 1.4;
     font-weight: 400;
-    line-height: 2rem;
+    line-height: 2rem; */
 }
 
 .list:hover {
@@ -188,7 +189,12 @@ h1 {
 }
 
 .dish-li {
-    list-style-type: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+    /* margin: 1rem; */
+    padding: 1rem;
+    display: flex;
+    /* justify-content: space-evenly; */
 }
 
 .dish-li a {
@@ -197,31 +203,19 @@ h1 {
     letter-spacing: 100%;
 }
 
-.dish-li p {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.8rem;
-}
-
 p.badge {
-    width: 70px;
+    width: 80px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.6rem;
-    font-weight: 600;
+    font-size: 0.8em;
+    font-weight: 500;
     letter-spacing: 0.08rem;
-    color: grey;
-    padding: 2px 2px;
+    color: var(--color-first);
+    padding: 3px 3px;
     text-align: center;
     border-radius: 5px;
-    border: 1px grey solid;
-    text-transform: lowercase;
-}
-
-.dish-list-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: nowrap;
+    border: 1px rgb(169, 165, 151) solid;
+    text-transform: uppercase;
+    margin: 0.3rem;
 }
 
 .weekly-menu {
@@ -239,7 +233,70 @@ p.badge {
     padding: 0rem 6rem;
 }
 
+/* Dish List Styles */
+
+.dish-list-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .dish-h1 {
+    font-size: 1.4rem;
+}
+
+.dish-ingredients {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1rem;
+    padding-top: 1rem;
+    /* align-items: center; */
+}
+
+.dish-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.06rem;
+}
+
+.drink-list {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.4;
+    font-weight: 400;
+    line-height: 2rem;
+}
+
+.drink-list:hover {
+    background-color: rgba(156, 145, 129, 0.287);
+}
+
+.drink-list:before {
+    content: "";
+    display: block;
+    height: 12px;
+    width: 12px;
+    position: absolute;
+}
+
+.drink-list:not(:last-of-type) {
+    border-bottom: 1px solid #b6ad9c;
+}
+
+.dishes-dish-name {
+    font-family: "Gentium Book Basic", serif;
     font-size: 2rem;
-    opacity: 15%;
+    font-weight: 600;
+}
+
+.dish-list-name-ingredients-spaces {
+    padding-left: 1rem;
+}
+
+/* .dish-price {
+    display: flex; */
+
+.dish-list-icon {
+    padding-top: 2rem;
+    padding-left: 0.3rem;
 }

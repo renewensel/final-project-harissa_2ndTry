@@ -2,7 +2,7 @@
     width: 100vw;
 }
 .mySwiper {
-    height: 80vh;
+    height: 76vh;
     /* margin: 0 10px 20px 10px !important; */
 }
 
@@ -19,7 +19,7 @@
 
 .swiper-slide img {
     display: block;
-    width: 50vw;
-    height: 50vh;
+    width: 40vw;
+    height: 40vh;
     object-fit: cover;
 }

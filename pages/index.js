@@ -51,6 +51,7 @@ export default function Home() {
                 >
                     ➔ &nbsp;Menu from{" "}
                 </span>
+                <br />
                 <span
                     style={{
                         fontFamily: "Arial",
