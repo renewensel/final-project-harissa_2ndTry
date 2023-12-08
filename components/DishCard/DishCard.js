@@ -19,8 +19,11 @@ export default function DishCard() {
     // Filter out only the dishes that should be shown
     const shownDishes = data.filter((dish) => dish.isShown);
 
+    // Shuffle the array of shown dishes
+    const shuffledDishes = shuffleArray(shownDishes);
+
     // Limit the number of dishes to be shown to 4
-    const limitedDishes = shownDishes.slice(0, 4);
+    const limitedDishes = shuffledDishes.slice(0, 4);
 
     // Get the default dish (the first one in the limitedDishes array)
     const defaultDish = limitedDishes[0];
@@ -144,4 +147,17 @@ export default function DishCard() {
             </div>
         </>
     );
+}
+
+// Function to shuffle an array
+function shuffleArray(array) {
+    const shuffledArray = array.slice();
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledArray[i], shuffledArray[j]] = [
+            shuffledArray[j],
+            shuffledArray[i],
+        ];
+    }
+    return shuffledArray;
 }
