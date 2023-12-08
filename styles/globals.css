@@ -246,7 +246,7 @@ p.badge {
     border: 1px rgb(169, 165, 151) solid;
     text-transform: uppercase;
     margin: 0.3rem;
-    margin-top: 0.9rem;
+    margin-top: 0.7rem;
 }
 
 .weekly-menu {
@@ -318,11 +318,14 @@ p.badge {
 
 .dishes-dish-name {
     font-family: "Gentium Book Plus", serif;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 500;
+    line-height: 80%;
 }
 
 .dish-list-name-ingredients-spaces {
+    display: block;
+    max-width: 500px;
     padding-left: 1rem;
 }
 
