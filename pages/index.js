@@ -5,6 +5,8 @@ import Navigation from "@/components/Navigation";
 import Page from "@/components/page";
 import Link from "next/link";
 import { getRandomDateInCurrentWeek } from "@/components/DishList/getRandomDateInCurrentWeek";
+// Import Leaflet CSS
+import "leaflet/dist/leaflet.css";
 
 export default function Home() {
     // Move the dateRange calculation inside the component

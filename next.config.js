@@ -1,6 +1,9 @@
-// next.config.js
+const withTM = require("next-transpile-modules")([
+    "react-leaflet-cluster",
+    "leaflet",
+]);
 
-module.exports = {
+module.exports = withTM({
     compiler: {
         styledComponents: true,
     },
@@ -12,6 +15,24 @@ module.exports = {
             use: ["@svgr/webpack"],
         });
 
+        // Add the following lines to configure ESM externals
+        config.resolve.fallback = {
+            ...config.resolve.fallback,
+            assert: false,
+            buffer: false,
+            crypto: false,
+            fs: false,
+            http: false,
+            https: false,
+            os: false,
+            stream: false,
+            url: false,
+            util: false,
+            zlib: false,
+            constants: false,
+            process: false,
+        };
+
         return config;
     },
     async headers() {
@@ -21,13 +42,14 @@ module.exports = {
                 headers: [
                     {
                         key: "Content-Security-Policy",
-                        value: "default-src 'self'; script-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' renewensel.com data:;",
+                        value: "default-src 'self'; script-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: tile.openstreetmap.org leafletjs.com *.tile.openstreetmap.org *.tile.osm.org *.openstreetmap.org;",
                     },
                 ],
             },
         ];
     },
+    // Remove the domains from the images configuration
     images: {
         domains: ["renewensel.com"],
     },
-};
+});
