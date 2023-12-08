@@ -28,8 +28,8 @@ export default function DrinkList() {
                         <Image
                             src={defaultDrink.drinkImage}
                             alt={defaultDrink.drinkImage}
-                            width={100}
-                            height={260}
+                            width={190}
+                            height={500}
                         />
                     </div>
                 )}
@@ -49,7 +49,7 @@ export default function DrinkList() {
                     {shownDrinks.map((drink) => (
                         <li
                             key={drink.id}
-                            className="list"
+                            className="drink-list"
                             onMouseEnter={() => setHoveredDrink(drink)}
                             onMouseLeave={() => setHoveredDrink(null)}
                         >

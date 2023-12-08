@@ -6,7 +6,7 @@ const DishIcon = ({ type, isTrue }) => {
     const iconSrc = isTrue ? `/${type}.png` : null;
 
     return iconSrc ? (
-        <Image src={iconSrc} alt={type} width={40} height={40} />
+        <Image src={iconSrc} alt={type} width={30} height={30} />
     ) : null;
 };
 

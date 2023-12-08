@@ -28,14 +28,19 @@ export default function SwiperSlider() {
             >
                 <SwiperSlide>
                     {/* <div className="content-container"> */}
+                    <h2>
+                        Healthy, fast, convenient and inexpensive. Different
+                        dishes every week
+                    </h2>
                     <div className="swiper-slide-style">
                         <div>
-                            <h1 className="dish-h1">
-                                Healthy, fast, convenient and inexpensive.
-                                Different dishes every week
-                            </h1>
+                            <Image
+                                src="http://renewensel.com/fphar/images/dishes_01.png"
+                                width={300}
+                                height={300}
+                            />
                             <p className="badge">Sweet</p>
-                            <h2>Hello there - Welcome Message with picture</h2>
+                            <h2>Minced beef with coriander potatoes</h2>
                             <p className="dish-li">
                                 Lamb, bell peppers, onions, spices, yogurt sauce
                             </p>
@@ -45,12 +50,6 @@ export default function SwiperSlider() {
                                 ➔ Menu from 27. Nov. - 01. Dec.
                             </Link>
                         </div>
-
-                        <Image
-                            src="http://renewensel.com/fphar/images/dishes_01.png"
-                            width={500}
-                            height={500}
-                        />
                     </div>
 
                     {/* </div> */}

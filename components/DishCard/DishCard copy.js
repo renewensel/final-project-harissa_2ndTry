@@ -2,7 +2,8 @@ import useSWR from "swr";
 import Image from "next/image";
 import { useState } from "react";
 import { getRandomDateInCurrentWeek } from "../DishList/getRandomDateInCurrentWeek";
-import DishIcon from "../DishList/DishIcon";
+import Link from "next/link";
+import DishCard2 from "../DishCard2/DishCard2";
 
 export default function DishCard() {
     const { data, error } = useSWR("/api/dishes");
@@ -53,18 +54,16 @@ export default function DishCard() {
                 <DishCard2 style={{ maxWidth: "200px" }} />
             </div> */}
             <div className="dish-list-container">
-                <div className="dish-image-zIndex">
-                    {!hoveredDish && (
-                        <div className="default-dish-image">
-                            <Image
-                                src={defaultDish.dishImage}
-                                alt={defaultDish.dishImage}
-                                width={500}
-                                height={500}
-                            />
-                        </div>
-                    )}
-                </div>
+                {!hoveredDish && (
+                    <div className="default-dish-image">
+                        <Image
+                            src={defaultDish.dishImage}
+                            alt={defaultDish.dishImage}
+                            width={500}
+                            height={500}
+                        />
+                    </div>
+                )}
 
                 {hoveredDish && (
                     <div className="hovered-dish-image">
@@ -95,32 +94,13 @@ export default function DishCard() {
                                 {dish.flavour.mild && (
                                     <p className="badge">Mild</p>
                                 )}
-                                <div className="dish-list-icon">
-                                    <DishIcon
-                                        type="meat"
-                                        isTrue={dish.ingredientsIcons.meat}
-                                    />
-                                    <DishIcon
-                                        type="vegetarian"
-                                        isTrue={
-                                            dish.ingredientsIcons.vegetarian
-                                        }
-                                    />
-                                    <DishIcon
-                                        type="vegan"
-                                        isTrue={dish.ingredientsIcons.vegan}
-                                    />
-                                </div>
                             </div>
-
                             <div className="dish-list-name-ingredients-spaces">
                                 <p className="dishes-dish-name">{dish.dish}</p>
                                 <p className="dish-ingredients">
                                     {dish.ingredients}
                                 </p>
-                            </div>
-                            <div className="dish-price">
-                                <p>5,90€</p>
+                                <p className="dish-price">{dish.price}</p>
                             </div>
                         </li>
                     ))}

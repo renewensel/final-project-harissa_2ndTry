@@ -2,6 +2,7 @@ import useSWR from "swr";
 import Image from "next/image";
 import DishIcon from "./DishIcon.js";
 import { getRandomDateInCurrentWeek } from "./getRandomDateInCurrentWeek"; // Correct import statement
+import DishCard from "../DishCard/DishCard.js";
 
 export default function DishList() {
     const { data, isLoading } = useSWR("/api/dishes");
@@ -22,28 +23,30 @@ export default function DishList() {
     // Take only the first 4 dishes
     const firstFourDishes = shuffledDishes.slice(0, 4);
 
-    // Move the dateRange calculation inside the component
-    const { startOfWeek, endOfWeek } = getRandomDateInCurrentWeek();
-    const formattedStartDate = startOfWeek?.toLocaleDateString("en-US", {
-        weekday: "short",
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-    });
-    const formattedEndDate = endOfWeek?.toLocaleDateString("en-US", {
-        weekday: "short",
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-    });
-    const dateRange = `${formattedStartDate} - ${formattedEndDate}`;
-
     return (
         <>
-            <h5>Menu from {dateRange}</h5>
-
-            <div className="dish-list-container">
-                <ul>
+            {/* <h4 href={"/dishes"} alt="weekly-menu">
+                <span
+                    style={{
+                        fontFamily: "Arial",
+                        fontSize: "0.8rem",
+                        fontWeight: "300",
+                    }}
+                >
+                    ➔ &nbsp;Menu from{" "}
+                </span>
+                <br />
+                <span
+                    style={{
+                        fontFamily: "Arial",
+                        fontWeight: "600",
+                    }}
+                >
+                    {dateRange}
+                </span>
+            </h4> */}
+            <DishCard />
+            {/* <ul>
                     {firstFourDishes.map((dish) => (
                         <li key={dish.id} className="dish-li">
                             <div>
@@ -69,7 +72,7 @@ export default function DishList() {
                             <p>{dish.ingredients}</p>
 
                             {/* Pass boolean values directly to DishIcon */}
-                            <DishIcon
+            {/* <DishIcon
                                 type="meat"
                                 isTrue={dish.ingredientsIcons.meat}
                             />
@@ -83,8 +86,7 @@ export default function DishList() {
                             />
                         </li>
                     ))}
-                </ul>
-            </div>
+                </ul> */}
         </>
     );
 }
