@@ -15,13 +15,13 @@ const MapPage = () => {
                     <p>
                         Harissa Oriental Cuisine BBE Bistro Betriebs- &
                         Entwicklungsgesellschaft mbH
-                        <p>Brückenstr. 10a, 10179 Berlin</p>
-                        <p>
-                            Fon: 0152 / 51 51 60 73 E-Mail:
-                            info@harissa-berlin.de Geschäftsführer: Ramsi
-                            Hoffmann USt-IdNr. DE275905662 Berlin Charlottenburg
-                            HRB: 132686
-                        </p>
+                    </p>
+
+                    <p>Brückenstr. 10a, 10179 Berlin</p>
+                    <p>
+                        Fon: 0152 / 51 51 60 73 E-Mail: info@harissa-berlin.de
+                        Geschäftsführer: Ramsi Hoffmann USt-IdNr. DE275905662
+                        Berlin Charlottenburg HRB: 132686
                     </p>
                 </div>
                 <div>
