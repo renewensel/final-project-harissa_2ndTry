@@ -17,7 +17,8 @@ const MyMap = () => {
         <MapContainer
             center={center}
             zoom={zoom}
-            style={{ height: "600px", width: "600px" }}
+            style={{ height: "600px", width: "100" }}
+            className="leaflet-map-container"
         >
             <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -25,7 +26,11 @@ const MyMap = () => {
             />
             <Marker position={center} icon={markerIcon}>
                 <Popup>
-                    A pretty CSS3 popup. <br /> Easily customizable.
+                    <b>Harissa Oriental Cuisine </b>
+                    <br /> Brückenstr. 10a, 10179 Berlin
+                    <br />
+                    <br />
+                    Mon - Fri: 11:00 - 14:45
                 </Popup>
             </Marker>
         </MapContainer>
