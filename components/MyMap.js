@@ -17,7 +17,7 @@ const MyMap = () => {
         <MapContainer
             center={center}
             zoom={zoom}
-            style={{ height: "600px", width: "100" }}
+            style={{ height: "400px", width: "80" }}
             className="leaflet-map-container"
         >
             <TileLayer
