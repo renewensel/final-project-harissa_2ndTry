@@ -53,10 +53,8 @@ export default function DishCard() {
     const handleFilter = (filterType) => {
         setFilter(filterType);
         if (filterType === "Offline") {
-            // Filter dishes based on hiddenDishes
-            const offlineDishes = data.filter((dish) =>
-                hiddenDishes.includes(dish.id.toString())
-            );
+            // Filter dishes based on isShown property
+            const offlineDishes = data.filter((dish) => !dish.isShown);
             setVisibleDishes(offlineDishes);
         } else {
             // For "All" and "Online" filters, use the original data
@@ -143,6 +141,7 @@ export default function DishCard() {
                         </button>
                     </div>
                 </div>
+
                 <div>
                     {filteredDishes.map((dish) => (
                         <li
@@ -220,7 +219,7 @@ export default function DishCard() {
                                     className="status-button-check-off"
                                     onClick={() => handleHideDish(dish.id)}
                                 >
-                                    X Remove
+                                    X
                                 </button>
                             </div>
                         </li>
