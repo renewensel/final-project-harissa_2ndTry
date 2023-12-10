@@ -387,7 +387,9 @@ h4 {
 }
 
 .leaflet-map-container {
-    width: 600px;
+    width: auto;
+    margin: 1rem 2rem;
+    /* width: 600px; */
     /* display: flex; */
 }
 

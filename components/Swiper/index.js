@@ -56,12 +56,7 @@ export default function SwiperSlider() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="swiper-slide-style">
-                        <Image
-                            src="/Startbild_1.png"
-                            fill
-                            sizes="90vw"
-                            alt="startbild1"
-                        />
+                        <Image src="/Startbild_1.png" fill alt="startbild1" />
                         {/* <DishList /> */}
                         {/* <h2>picture of the place and some infos</h2>
                         <Image
