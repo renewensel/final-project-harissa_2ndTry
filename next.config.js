@@ -54,7 +54,12 @@ const nextConfig = {
         ];
     },
     images: {
-        domains: ["renewensel.com", "github.com", "authjs.dev"],
+        domains: [
+            "renewensel.com",
+            "github.com",
+            "authjs.dev",
+            "avatars.githubusercontent.com",
+        ],
     },
 };
 

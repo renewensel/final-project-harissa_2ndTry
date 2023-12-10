@@ -1,15 +1,68 @@
 import useSWR from "swr";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getRandomDateInCurrentWeek } from "../DishList/getRandomDateInCurrentWeek";
 import DishIcon from "../DishList/DishIcon";
+import styles from "@/styles/DishAdmin.module.css";
 
 export default function DishCard() {
     const { data, error } = useSWR("/api/dishes");
+    const [visibleDishes, setVisibleDishes] = useState([]);
+    const [hiddenDishes, setHiddenDishes] = useState([]);
+    const [filter, setFilter] = useState("All");
 
     useEffect(() => {
-        // You may add additional logic here if needed
+        if (data) {
+            // Initialize visible dishes state based on initial data
+            const initialVisibleDishes = data.filter((dish) => dish.isShown);
+            setVisibleDishes(initialVisibleDishes);
+        }
     }, [data]);
+
+    const handleHideDish = (dishId) => {
+        // Update the visibility of the dish with the provided dishId
+        const updatedVisibleDishes = visibleDishes.map((dish) => {
+            if (dish.id === dishId) {
+                return { ...dish, isShown: false };
+            }
+            return dish;
+        });
+
+        setVisibleDishes(updatedVisibleDishes);
+        setHiddenDishes((prevHiddenDishes) => [
+            ...prevHiddenDishes,
+            dishId.toString(),
+        ]);
+    };
+
+    const handleShowDish = (dishId) => {
+        // Update the visibility of the dish with the provided dishId
+        const updatedVisibleDishes = visibleDishes.map((dish) => {
+            if (dish.id === dishId) {
+                return { ...dish, isShown: true };
+            }
+            return dish;
+        });
+
+        setVisibleDishes(updatedVisibleDishes);
+        setHiddenDishes((prevHiddenDishes) =>
+            prevHiddenDishes.filter((id) => id !== dishId.toString())
+        );
+    };
+
+    const handleFilter = (filterType) => {
+        setFilter(filterType);
+        if (filterType === "Offline") {
+            // Filter dishes based on hiddenDishes
+            const offlineDishes = data.filter((dish) =>
+                hiddenDishes.includes(dish.id.toString())
+            );
+            setVisibleDishes(offlineDishes);
+        } else {
+            // For "All" and "Online" filters, use the original data
+            setVisibleDishes(data.filter((dish) => dish.isShown));
+        }
+    };
 
     if (error) {
         return <div>Error loading data</div>;
@@ -34,11 +87,22 @@ export default function DishCard() {
     });
     const dateRange = `${formattedStartDate} - ${formattedEndDate}`;
 
+    const filteredDishes =
+        filter === "All"
+            ? data
+            : filter === "Online"
+            ? visibleDishes
+            : data.filter((dish) => hiddenDishes.includes(dish.id.toString()));
+
     return (
-        <div className="dish-list-container">
-            <ul className="dish-list-box">
-                <div>
-                    <h4 href={"/dishes"} alt="weekly-menu">
+        <div>
+            <ul className="dish-list-box-admin">
+                <div className="date-status-buttons-box">
+                    <h4
+                        className="menue-h4-admin"
+                        href={"/dishes"}
+                        alt="weekly-menu"
+                    >
                         <span
                             style={{
                                 fontFamily: "Arial",
@@ -58,13 +122,41 @@ export default function DishCard() {
                             {dateRange}
                         </span>
                     </h4>
+                    <div className="button-status-admin-box">
+                        <button
+                            className="button-status-admin-dishes"
+                            onClick={() => handleFilter("All")}
+                        >
+                            All
+                        </button>
+                        <button
+                            className="button-status-admin-dishes"
+                            onClick={() => handleFilter("Online")}
+                        >
+                            Online
+                        </button>
+                        <button
+                            className="button-status-admin-dishes"
+                            onClick={() => handleFilter("Offline")}
+                        >
+                            Offline
+                        </button>
+                    </div>
                 </div>
                 <div>
-                    {data.map((dish) => (
-                        <li key={dish.id} className="list dish-li">
+                    {filteredDishes.map((dish) => (
+                        <li
+                            key={dish.id}
+                            className={`list dish-li ${
+                                !dish.isShown &&
+                                hiddenDishes.includes(dish.id.toString())
+                                    ? styles.hiddenDish
+                                    : ""
+                            }`}
+                        >
                             <div className="default-dish-image">
                                 <Image
-                                    src={dish.dishImage} // Using the dish's image
+                                    src={dish.dishImage}
                                     alt={dish.dishImage}
                                     width={100}
                                     height={100}
@@ -109,33 +201,27 @@ export default function DishCard() {
                                 <p>5,90€</p>
                             </div>
                             <div>
-                                <div>
-                                    <button
-                                        style={{
-                                            Color: dish.isShown
-                                                ? "green"
-                                                : "grey",
-                                        }}
-                                    >
-                                        {dish.isShown ? "Online" : "Offline"}
-                                    </button>
-                                </div>
-                                <div>
-                                    <button
-                                        style={{
-                                            Color: "green",
-                                        }}
-                                    >
-                                        ✔
-                                    </button>
-                                    <button
-                                        style={{
-                                            Color: "red",
-                                        }}
-                                    >
-                                        X
-                                    </button>
-                                </div>
+                                <button
+                                    style={{ pointerEvents: "none" }}
+                                    className={`status-button-${
+                                        dish.isShown ? "online" : "offline"
+                                    }`}
+                                    onClick={() => handleShowDish(dish.id)}
+                                >
+                                    {dish.isShown ? "Online" : "Offline"}
+                                </button>
+                                <button
+                                    className="status-button-check-on"
+                                    onClick={() => handleShowDish(dish.id)}
+                                >
+                                    ✔ Add
+                                </button>
+                                <button
+                                    className="status-button-check-off"
+                                    onClick={() => handleHideDish(dish.id)}
+                                >
+                                    X Remove
+                                </button>
                             </div>
                         </li>
                     ))}

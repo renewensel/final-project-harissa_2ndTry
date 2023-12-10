@@ -390,3 +390,110 @@ h4 {
     width: 600px;
     /* display: flex; */
 }
+
+.dish-list-container-admin {
+    display: flex;
+    min-width: 760px;
+    padding-top: 2rem;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button-status-admin-box {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.button-status-admin-dishes {
+    width: 100px;
+}
+
+.date-status-buttons-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid #423e37;
+}
+
+.menue-h4-admin {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.status-button-online {
+    color: white;
+    background-color: rgb(12, 101, 12);
+    margin-left: 5px;
+    border: 2px solid rgb(12, 101, 12);
+    border-radius: 4px;
+    padding: 0.4rem;
+}
+
+.status-button-offline {
+    color: white;
+    background-color: #e10e1e;
+    margin-left: 5px;
+    border: 2px solid #e10e1e;
+    border-radius: 4px;
+    padding: 0.4rem;
+}
+
+.status-button-check-on {
+    color: rgb(12, 101, 12, 50%);
+    margin-left: 5px;
+    background: none;
+    border: 2px solid rgb(12, 101, 12, 50%);
+    border-radius: 4px;
+    padding: 0.4rem;
+}
+
+.status-button-check-on:hover {
+    color: white;
+    background: rgb(12, 101, 12, 75%);
+    border: 2px solid rgb(12, 101, 12, 25%);
+}
+
+.status-button-check-on:active {
+    color: white;
+    background: rgb(12, 101, 12);
+    border: 2px solid rgb(12, 101, 12);
+}
+
+.status-button-check-off {
+    color: rgb(225, 14, 30, 50%);
+    margin-left: 5px;
+    background: none;
+    border: 2px solid rgb(225, 14, 30, 50%);
+    border-radius: 4px;
+    padding: 0.4rem;
+}
+
+.status-button-check-off:hover {
+    color: white;
+    background: rgb(225, 14, 30, 75%);
+    border: 2px solid rgb(225, 14, 30, 75%);
+}
+
+.status-button-check-off:active {
+    color: white;
+    background: rgb(225, 14, 30);
+    border: 2px solid rgb(225, 14, 30);
+}
+
+.dish-list-box-admin {
+    min-width: 760px;
+}
+
+.admin-navi {
+    display: flex;
+    min-width: 800px;
+    padding-bottom: 4rem;
+}
+
+.logged-in-message {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+}
