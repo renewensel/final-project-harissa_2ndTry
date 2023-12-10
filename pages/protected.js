@@ -1,5 +1,6 @@
 // pages/protected.js
 import { useSession, signIn, signOut } from "next-auth/react";
+import DishAdmin from "@/components/DishAdmin";
 
 export default function Protected() {
     const { data: session } = useSession();
@@ -7,13 +8,13 @@ export default function Protected() {
 
     if (session) {
         return (
-            <div>
-                <h1>This is Protected Content!</h1>
+            <div className="container-styles">
                 <p>
                     Congratulations, {session.user.name}, you are successfully
                     logged in!
                 </p>
                 <img src="session.user.image" alt="github profile picture" />
+                <DishAdmin />
                 <button onClick={() => signOut()}>Sign Out</button>
             </div>
         );
