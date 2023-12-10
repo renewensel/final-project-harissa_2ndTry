@@ -56,7 +56,7 @@ export default function Navigation() {
                     >
                         Imprint
                     </Link>
-                    {/* <Link href="#">DE</Link> / <Link href="#">EN</Link> */}
+                    {/* <Link href="#">Admin</Link> */}
                 </div>
                 <div>
                     <Link className="hidden" href="#">

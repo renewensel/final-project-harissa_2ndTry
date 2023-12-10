@@ -59,6 +59,7 @@ const nextConfig = {
             "github.com",
             "authjs.dev",
             "avatars.githubusercontent.com",
+            "authjs.dev/img/providers/github.svg",
         ],
     },
 };

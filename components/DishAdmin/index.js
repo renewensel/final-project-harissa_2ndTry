@@ -219,7 +219,7 @@ export default function DishCard() {
                                     className="status-button-check-off"
                                     onClick={() => handleHideDish(dish.id)}
                                 >
-                                    X
+                                    X Remove
                                 </button>
                             </div>
                         </li>

@@ -47,11 +47,24 @@ export default function Protected() {
     }
 
     return (
-        <div className="log-in-bro">
-            <h3>log in, bro!</h3>
-            <button className="log-in-bro-button" onClick={() => signIn()}>
-                Sign in
-            </button>
-        </div>
+        <>
+            <div>
+                <Link href="/">
+                    <Image
+                        src="/harissa_logo.svg"
+                        alt="Harissa Logo"
+                        width={180}
+                        height={90}
+                        priority
+                    />
+                </Link>
+            </div>
+            <div className="log-in-bro">
+                <h3>log in, bro!</h3>
+                <button className="log-in-bro-button" onClick={() => signIn()}>
+                    Sign in
+                </button>
+            </div>
+        </>
     );
 }
