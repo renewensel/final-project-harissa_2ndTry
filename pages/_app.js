@@ -6,10 +6,14 @@ import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
 import "react-leaflet-cluster/lib/assets/MarkerCluster.Default.css";
 // Import Leaflet CSS
+import { SessionProvider } from "next-auth/react";
 
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
-export default function App({ Component, pageProps }) {
+export default function App({
+    Component,
+    pageProps: { session, ...pageProps },
+}) {
     const router = useRouter();
 
     return (
@@ -23,7 +27,10 @@ export default function App({ Component, pageProps }) {
                             revalidateOnFocus: false, // Prevent automatic refetching on focus
                         }}
                     >
-                        <Component {...pageProps} />
+                        <SessionProvider session={session}>
+                            <Component {...pageProps} />
+                        </SessionProvider>
+
                         <motion.div
                             className="slide-in"
                             initial={{ scaleY: 0 }}
