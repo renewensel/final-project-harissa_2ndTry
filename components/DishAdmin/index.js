@@ -96,6 +96,7 @@ export default function DishCard() {
         <div>
             <ul className="dish-list-box-admin">
                 <div className="date-status-buttons-box">
+                    <h5 className="admin-h4">Dishes</h5>
                     <h4
                         className="menue-h4-admin"
                         href={"/dishes"}
