@@ -78,10 +78,32 @@ const AdminDashboard = () => {
                                                 ? item.dish
                                                 : item.drink
                                         }
-                                        width={title === "Dishes" ? 100 : 45}
+                                        width={title === "Dishes" ? 100 : 40}
                                         height={100}
                                     />
                                 </td>
+                                {title === "Dishes" && (
+                                    <>
+                                        <td>
+                                            {Object.entries(item.flavour)
+                                                .filter(
+                                                    ([key, value]) =>
+                                                        value === true
+                                                )
+                                                .map(([key]) => (
+                                                    <p
+                                                        key={key}
+                                                        className="badge"
+                                                        style={{
+                                                            fontSize: "0.7rem",
+                                                        }}
+                                                    >
+                                                        {key}
+                                                    </p>
+                                                ))}
+                                        </td>
+                                    </>
+                                )}
                                 <td>{item.dish || item.drink}</td>
                                 {title === "Dishes" && (
                                     <td className={styles.ingredients}>
@@ -89,6 +111,22 @@ const AdminDashboard = () => {
                                     </td>
                                 )}
                                 <td>{item.isShown ? "Online" : "Offline"}</td>
+                                <td>
+                                    <div>
+                                        <button
+                                            className="status-button-online"
+                                            style={{ pointerEvents: "none" }}
+                                        >
+                                            Online
+                                        </button>
+                                        <button className="status-button-check-on">
+                                            ✔ Add
+                                        </button>
+                                        <button className="status-button-check-off">
+                                            X Remove
+                                        </button>
+                                    </div>
+                                </td>
                             </tr>
                         ))}
                 </tbody>
