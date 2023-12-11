@@ -47,10 +47,10 @@ export default function SwiperSlider() {
                         <div className="dish-card-front">
                             <Image
                                 src="http://renewensel.com/fphar/images/dishes_01.png"
-                                width={500}
-                                height={500}
+                                width={550}
+                                height={550}
                             />
-                            <div className="dish-card-front-title-icon">
+                            {/* <div className="dish-card-front-title-icon">
                                 <h2>
                                     Minced beef with coriander potatoes{" "}
                                     <span>
@@ -66,7 +66,7 @@ export default function SwiperSlider() {
                                     Lamb, bell peppers, onions, spices, yogurt
                                     sauce
                                 </p>
-                            </div>
+                            </div> */}
 
                             {/* <Link href={"/dishes"} alt="weekly-menu">
                                 ➔ Menu from 27. Nov. - 01. Dec.
@@ -78,14 +78,30 @@ export default function SwiperSlider() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="swiper-slide-style">
-                        <Image src="/Startbild_1.png" fill alt="startbild1" />
-                        {/* <DishList /> */}
-                        {/* <h2>picture of the place and some infos</h2>
-                        <Image
-                            src="http://renewensel.com/fphar/images/dishes_02.png"
-                            width={500}
-                            height={500}
-                        /> */}
+                        <div className="dish-card-front">
+                            <Image
+                                src="/harissa-laden-2.png"
+                                width={680}
+                                height={430}
+                            />
+                            {/* <Image
+                                src="/polaroid-harissa-1.png"
+                                width={550}
+                                height={550}
+                            /> */}
+                        </div>
+                        <div className="heading-front-1">
+                            <h4>
+                                <b>Harissa Oriental Cuisine</b>
+                                <br />
+                                Brückenstr. 10a, 10179 Berlin
+                                <br />
+                                <br />
+                                opening hours
+                                <br />
+                                Mon - Fri: 11:00 - 14:45
+                            </h4>
+                        </div>
                     </div>
                 </SwiperSlide>
                 {/* <SwiperSlide>
