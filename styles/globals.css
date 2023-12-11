@@ -606,3 +606,52 @@ h4 {
     border-bottom: 0;
     text-transform: uppercase;
 }
+
+.dish-card-front {
+    display: flex;
+    font-size: 1rem;
+    line-height: 1.4rem;
+    /* border: 2px solid #e10e1e; */
+    border-radius: 8px;
+    /* background-color: rgb(206, 13, 26, 4%); */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-image: url("/heart.svg");
+    background-repeat: no-repeat; */
+}
+
+.dish-card-front p {
+    font-size: 0.9rem;
+}
+
+.dish-card-front p.badge {
+    text-transform: lowercase;
+    font-size: 0.7rem;
+    width: 70px;
+    height: 30px;
+}
+
+.dish-card-front p.dish-li {
+    margin: 0;
+    padding: 0;
+    text-transform: lowercase;
+    font-size: 0.8rem;
+}
+
+.dish-card-front-title-icon {
+    font-size: 1.6rem;
+
+    /* display: flex; */
+}
+
+.heading-front-1 {
+    font-size: 1.8rem;
+    line-height: 2rem;
+    white-space: nowrap;
+    line-height: 3.4rem;
+}
+
+.footer-menu {
+    line-height: 1.3rem;
+}

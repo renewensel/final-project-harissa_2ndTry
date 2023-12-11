@@ -28,27 +28,49 @@ export default function SwiperSlider() {
             >
                 <SwiperSlide>
                     {/* <div className="content-container"> */}
-                    <h2>
-                        Healthy, fast, convenient and affordable. Different
-                        dishes every week
-                    </h2>
+
                     <div className="swiper-slide-style">
-                        <div>
+                        <div className="heading-front-1">
+                            <h2>
+                                &nbsp;&nbsp;Healthy, fast,
+                                <br />
+                                convenient and
+                                <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;affordable.
+                                <br />
+                                <br />
+                                Different dishes
+                                <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;every week.
+                            </h2>
+                        </div>
+                        <div className="dish-card-front">
                             <Image
                                 src="http://renewensel.com/fphar/images/dishes_01.png"
-                                width={300}
-                                height={300}
+                                width={500}
+                                height={500}
                             />
-                            <p className="badge">Sweet</p>
-                            <h2>Minced beef with coriander potatoes</h2>
-                            <p className="dish-li">
-                                Lamb, bell peppers, onions, spices, yogurt sauce
-                            </p>
-                            <Image src="/meat.png" width={30} height={30} />
-                            <br />
-                            <Link href={"/dishes"} alt="weekly-menu">
+                            <div className="dish-card-front-title-icon">
+                                <h2>
+                                    Minced beef with coriander potatoes{" "}
+                                    <span>
+                                        <Image
+                                            src="/meat.png"
+                                            width={20}
+                                            height={20}
+                                        />
+                                    </span>
+                                    <p className="badge">Sweet</p>
+                                </h2>
+                                <p className="dish-li">
+                                    Lamb, bell peppers, onions, spices, yogurt
+                                    sauce
+                                </p>
+                            </div>
+
+                            {/* <Link href={"/dishes"} alt="weekly-menu">
                                 ➔ Menu from 27. Nov. - 01. Dec.
-                            </Link>
+                            </Link> */}
                         </div>
                     </div>
 
@@ -66,7 +88,7 @@ export default function SwiperSlider() {
                         /> */}
                     </div>
                 </SwiperSlide>
-                <SwiperSlide>
+                {/* <SwiperSlide>
                     <div className="swiper-slide-style">
                         <h3>
                             Arabic / Mediterranean style Dishes Healthy
@@ -82,7 +104,7 @@ export default function SwiperSlider() {
                             Option
                         </h3>
                     </div>
-                </SwiperSlide>
+                </SwiperSlide> */}
             </Swiper>
         </>
     );
