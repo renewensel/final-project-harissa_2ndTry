@@ -43,26 +43,28 @@ export default function Home() {
                     /> */}
                 </div>
             </div>
-            <Link href={"/dishes"} alt="weekly-menu">
-                <span
-                    style={{
-                        fontFamily: "Arial",
-                        fontSize: "0.8rem",
-                        fontWeight: "300",
-                    }}
-                >
-                    ➔ &nbsp;Menu from{" "}
-                </span>
-                <br />
-                <span
-                    style={{
-                        fontFamily: "Arial",
-                        fontWeight: "600",
-                    }}
-                >
-                    {dateRange}
-                </span>
-            </Link>
+            <div className="footer-menu">
+                <Link href={"/dishes"} alt="weekly-menu">
+                    <span
+                        style={{
+                            fontFamily: "Arial",
+                            fontSize: "0.8rem",
+                            fontWeight: "300",
+                        }}
+                    >
+                        ➔ &nbsp;Menu from{" "}
+                    </span>
+                    <br />
+                    <span
+                        style={{
+                            fontFamily: "Arial",
+                            fontWeight: "600",
+                        }}
+                    >
+                        {dateRange}
+                    </span>
+                </Link>
+            </div>
         </Page>
     );
 }

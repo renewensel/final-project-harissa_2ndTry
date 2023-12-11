@@ -42,12 +42,12 @@ export default function Navigation() {
                     >
                         Drinks
                     </Link>
-                    <Link
+                    {/* <Link
                         href="/about"
                         className={router.pathname === "/about" ? "active" : ""}
                     >
                         About
-                    </Link>
+                    </Link> */}
                     <Link
                         href="/imprint"
                         className={
