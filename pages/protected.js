@@ -4,6 +4,7 @@ import Link from "next/link";
 import DishToggle from "@/components/DishToggle"; // Add this line
 import DishAdminCard from "@/components/DishAdminCard";
 import DishAdmin from "@/components/DishAdmin";
+import AdminDashboard from "@/components/AdminDashboard";
 
 export default function Protected() {
     const { data: session } = useSession();
@@ -42,11 +43,8 @@ export default function Protected() {
                     </div>
                 </div>
                 <DishAdmin className="dish-list-container-admin" />
-
-                {/* <DishToggle className="dish-list-container-admin" /> */}
-
-                {/* <DishAdminCard className="dish-list-container-admin" /> */}
-                {/* Integrate DishToggle component here */}
+                <h2>------- Admin Dashboard Test -------</h2>
+                <AdminDashboard />
             </div>
         );
     }
