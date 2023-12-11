@@ -23,11 +23,13 @@ const AdminDashboard = () => {
 
     const renderTable = (data, title, filter, setFilter) => (
         <div className={styles.tableContainer}>
-            <h2>{title}</h2>
+            {/* <h2>{title}</h2> */}
             <div className={styles.buttonsContainer}>
                 <button
                     className={
-                        filter === "All" ? styles.activeButtonNewStyle : ""
+                        filter === "All"
+                            ? styles.activeButtonNewStyleAllActive
+                            : styles.activeButtonNewStyleAll
                     }
                     onClick={() => setFilter("All")}
                 >
@@ -35,7 +37,9 @@ const AdminDashboard = () => {
                 </button>
                 <button
                     className={
-                        filter === "true" ? styles.activeButtonNewStyle : ""
+                        filter === "true"
+                            ? styles.activeButtonNewStyleOnlineActive
+                            : styles.activeButtonNewStyleOnline
                     }
                     onClick={() => setFilter("true")}
                 >
@@ -43,7 +47,9 @@ const AdminDashboard = () => {
                 </button>
                 <button
                     className={
-                        filter === "false" ? styles.activeButtonNewStyle : ""
+                        filter === "false"
+                            ? styles.activeButtonNewStyleOfflineActive
+                            : styles.activeButtonNewStyleOffline
                     }
                     onClick={() => setFilter("false")}
                 >
@@ -51,13 +57,13 @@ const AdminDashboard = () => {
                 </button>
             </div>
             <table className={styles.table}>
-                <thead>
+                {/* <thead>
                     <tr>
                         <th>Dish/Drink</th>
                         {title === "Dishes" && <th>Ingredients</th>}
                         <th>Status</th>
                     </tr>
-                </thead>
+                </thead> */}
                 <tbody>
                     {data
                         .filter((item) => {
@@ -107,18 +113,18 @@ const AdminDashboard = () => {
                     </span>
                 </h4>
                 <div className={styles.buttonStatusAdminBox}>
-                    <button className={styles.adminDashboardButton}>All</button>
+                    {/* <button className={styles.adminDashboardButton}>All</button>
                     <button className={styles.adminDashboardButton}>
                         Online
                     </button>
                     <button className={styles.adminDashboardButton}>
                         Offline
-                    </button>
+                    </button> */}
                 </div>
             </div>
             {renderTable(dishes, "Dishes", dishFilter, setDishFilter)}
             <div className={styles.dateStatusButtonsBox}>
-                <h5 className={styles.adminH4}>Dishes</h5>
+                {/* <h5 className={styles.adminH4}>Dishes</h5> */}
                 <h4
                     className={styles.menueH4Admin}
                     href="/dishes"
@@ -144,13 +150,13 @@ const AdminDashboard = () => {
                     </span>
                 </h4>
                 <div className={styles.buttonStatusAdminBox}>
-                    <button className={styles.adminDashboardButton}>All</button>
+                    {/* <button className={styles.adminDashboardButton}>All</button>
                     <button className={styles.adminDashboardButton}>
                         Online
                     </button>
                     <button className={styles.adminDashboardButton}>
                         Offline
-                    </button>
+                    </button> */}
                 </div>
             </div>
             {renderTable(drinks, "Drinks", drinkFilter, setDrinkFilter)}

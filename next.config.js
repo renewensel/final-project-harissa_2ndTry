@@ -47,7 +47,7 @@ const nextConfig = {
                 headers: [
                     {
                         key: "Content-Security-Policy",
-                        value: "default-src 'self'; script-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: renewensel.com tile.openstreetmap.org leafletjs.com *.tile.openstreetmap.org *.tile.osm.org *.openstreetmap.org; font-src 'self' https://fonts.gstatic.com;",
+                        value: "default-src 'self'; script-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: renewensel.com tile.openstreetmap.org leafletjs.com *.tile.openstreetmap.org *.tile.osm.org *.openstreetmap.org authjs.dev; font-src 'self' https://fonts.gstatic.com;",
                     },
                 ],
             },
