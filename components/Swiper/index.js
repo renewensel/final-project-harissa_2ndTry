@@ -29,7 +29,7 @@ export default function SwiperSlider() {
                 <SwiperSlide>
                     {/* <div className="content-container"> */}
                     <h2>
-                        Healthy, fast, convenient and inexpensive. Different
+                        Healthy, fast, convenient and affordable. Different
                         dishes every week
                     </h2>
                     <div className="swiper-slide-style">
