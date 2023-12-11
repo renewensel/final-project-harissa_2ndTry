@@ -1,5 +1,7 @@
 // pages/index.js
 import useSWR from "swr";
+import { useState } from "react";
+
 import styles from "@/styles/adminDashboard.module.css";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
@@ -7,6 +9,9 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 const AdminDashboard = () => {
     const { data: dishes, error: dishError } = useSWR("/api/dishes", fetcher);
     const { data: drinks, error: drinkError } = useSWR("/api/drinks", fetcher);
+
+    const [dishFilter, setDishFilter] = useState("All");
+    const [drinkFilter, setDrinkFilter] = useState("All");
 
     if (dishError || drinkError) {
         return <div>Error loading data</div>;
@@ -16,9 +21,35 @@ const AdminDashboard = () => {
         return <div>Loading...</div>;
     }
 
-    const renderTable = (data, title) => (
+    const renderTable = (data, title, filter, setFilter) => (
         <div className={styles.tableContainer}>
             <h2>{title}</h2>
+            <div className={styles.buttonsContainer}>
+                <button
+                    className={
+                        filter === "All" ? styles.activeButtonNewStyle : ""
+                    }
+                    onClick={() => setFilter("All")}
+                >
+                    ALL
+                </button>
+                <button
+                    className={
+                        filter === "true" ? styles.activeButtonNewStyle : ""
+                    }
+                    onClick={() => setFilter("true")}
+                >
+                    Online
+                </button>
+                <button
+                    className={
+                        filter === "false" ? styles.activeButtonNewStyle : ""
+                    }
+                    onClick={() => setFilter("false")}
+                >
+                    Offline
+                </button>
+            </div>
             <table className={styles.table}>
                 <thead>
                     <tr>
@@ -28,25 +59,102 @@ const AdminDashboard = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map((item) => (
-                        <tr key={item._id}>
-                            <td>{item.dish || item.drink}</td>
-                            {title === "Dishes" && <td>{item.ingredients}</td>}
-                            <td>{item.isShown ? "Online" : "Offline"}</td>
-                        </tr>
-                    ))}
+                    {data
+                        .filter((item) => {
+                            if (filter === "All") return true;
+                            return String(item.isShown) === filter;
+                        })
+                        .map((item) => (
+                            <tr key={item._id}>
+                                <td>{item.dish || item.drink}</td>
+                                {title === "Dishes" && (
+                                    <td>{item.ingredients}</td>
+                                )}
+                                <td>{item.isShown ? "Online" : "Offline"}</td>
+                            </tr>
+                        ))}
                 </tbody>
             </table>
         </div>
     );
 
     return (
-        <div>
-            <h2>Welcome to our Restaurant!</h2>
-
-            {renderTable(dishes, "Dishes")}
-            {renderTable(drinks, "Drinks")}
-        </div>
+        <>
+            <div className={styles.dateStatusButtonsBox}>
+                <h5 className={styles.adminH4}>Dishes</h5>
+                <h4
+                    className={styles.menueH4Admin}
+                    href="/dishes"
+                    alt="weekly-menu"
+                >
+                    <span
+                        style={{
+                            fontFamily: "Arial",
+                            fontSize: "1.1rem",
+                            fontWeight: 300,
+                        }}
+                    >
+                        ➔ &nbsp;Menu from{" "}
+                    </span>
+                    <span
+                        style={{
+                            fontFamily: "Arial",
+                            fontSize: "1.1rem",
+                            fontWeight: 600,
+                        }}
+                    >
+                        Mon, Dec 11, 2023 - Fri, Dec 15, 2023
+                    </span>
+                </h4>
+                <div className={styles.buttonStatusAdminBox}>
+                    <button className={styles.adminDashboardButton}>All</button>
+                    <button className={styles.adminDashboardButton}>
+                        Online
+                    </button>
+                    <button className={styles.adminDashboardButton}>
+                        Offline
+                    </button>
+                </div>
+            </div>
+            {renderTable(dishes, "Dishes", dishFilter, setDishFilter)}
+            <div className={styles.dateStatusButtonsBox}>
+                <h5 className={styles.adminH4}>Dishes</h5>
+                <h4
+                    className={styles.menueH4Admin}
+                    href="/dishes"
+                    alt="weekly-menu"
+                >
+                    <span
+                        style={{
+                            fontFamily: "Arial",
+                            fontSize: "1.1rem",
+                            fontWeight: 300,
+                        }}
+                    >
+                        ➔ &nbsp;Menu from{" "}
+                    </span>
+                    <span
+                        style={{
+                            fontFamily: "Arial",
+                            fontSize: "1.1rem",
+                            fontWeight: 600,
+                        }}
+                    >
+                        Mon, Dec 11, 2023 - Fri, Dec 15, 2023
+                    </span>
+                </h4>
+                <div className={styles.buttonStatusAdminBox}>
+                    <button className={styles.adminDashboardButton}>All</button>
+                    <button className={styles.adminDashboardButton}>
+                        Online
+                    </button>
+                    <button className={styles.adminDashboardButton}>
+                        Offline
+                    </button>
+                </div>
+            </div>
+            {renderTable(drinks, "Drinks", drinkFilter, setDrinkFilter)}
+        </>
     );
 };
 
