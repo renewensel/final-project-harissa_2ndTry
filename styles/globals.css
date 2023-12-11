@@ -493,13 +493,17 @@ h4 {
 
 .admin-navi {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     /* padding-bottom: 4rem; */
     background-color: rgb(64, 58, 48, 15%);
     padding: 1rem;
     border-radius: 12px;
-    width: 1040px;
+    /* width: 1040px; */
     /* padding-bottom: 5rem; */
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
 }
 
 .logged-in-message {
@@ -709,4 +713,8 @@ h4 {
 
 .pad-right {
     padding-right: 1.4rem;
+}
+
+.admin-dashboard-desktop {
+    display: flex;
 }
