@@ -44,7 +44,7 @@ export default function Protected() {
                 </div>
                 <DishAdmin className="dish-list-container-admin" />
                 <h2>------- Admin Dashboard Test -------</h2>
-                <AdminDashboard />
+                <AdminDashboard className="dish-list-container-admin" />
             </div>
         );
     }
