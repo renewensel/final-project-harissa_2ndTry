@@ -429,24 +429,26 @@ h4 {
 .status-button-online {
     color: white;
     background-color: rgb(12, 101, 12);
-    margin-left: 5px;
-    border: 2px solid rgb(12, 101, 12);
+    /* margin-left: 5px; */
+    border: 0;
     border-radius: 4px;
     padding: 0.4rem;
+    width: 100%;
 }
 
 .status-button-offline {
     color: white;
     background-color: #e10e1e;
-    margin-left: 5px;
-    border: 2px solid #e10e1e;
+    /* margin-left: 5px; */
+    border: 0;
     border-radius: 4px;
     padding: 0.4rem;
+    width: 100%;
 }
 
 .status-button-check-on {
     color: rgb(12, 101, 12, 50%);
-    margin-left: 5px;
+    /* margin-left: 5px; */
     background: none;
     border: 2px solid rgb(12, 101, 12, 50%);
     border-radius: 4px;
@@ -534,45 +536,6 @@ h4 {
     align-content: center;
     flex-direction: column;
     align-items: flex-start;
-}
-
-.log-in-bro {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: 500;
-    font-size: 4rem;
-    line-height: 90%;
-}
-
-.log-in-bro-button {
-    font-weight: 600;
-    color: #57534c;
-    background: none;
-    border: 2px solid #57534c;
-    padding: 0.6rem;
-    width: 420px;
-}
-
-.log-in-bro-button:hover {
-    font-weight: 600;
-    color: #e6d3b0;
-    background: #57534c;
-    border: 2px solid #57534c;
-    padding: 0.6rem;
-    width: 420px;
-}
-
-.log-in-bro-button:active {
-    font-weight: 600;
-    color: #e6d3b0;
-    background: #ce0d1b;
-    border: 2px solid #ce0d1b;
-    padding: 0.6rem;
-    width: 420px;
 }
 
 .dish-admin-is-online-background-grey {
@@ -716,5 +679,109 @@ h4 {
 }
 
 .admin-dashboard-desktop {
+    position: absolute;
+    left: 320px;
+}
+
+.admin-dashboard-fixed {
+    left: 24px;
+    position: fixed;
+    height: 100vh;
+    width: 240px;
+}
+
+.dashboard-buttons-status-add-remove {
+}
+
+.dashboard-buttons-add-remove {
     display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding-top: 0.2rem;
+}
+
+.dashboard-dishes-buttons-fixed {
+    position: fixed;
+    z-index: 1333;
+    background-color: grey;
+}
+
+.dashboard-dishes-list {
+    position: absolute;
+    top: 80px;
+}
+
+.log-in-bro {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 4rem;
+    line-height: 90%;
+}
+
+.log-in-bro-button {
+    font-weight: 600;
+    color: #57534c;
+    background: none;
+    border: 2px solid #57534c;
+    padding: 0.6rem;
+    width: 420px;
+}
+
+.log-in-bro-button:hover {
+    font-weight: 600;
+    color: #e6d3b0;
+    background: #57534c;
+    border: 2px solid #57534c;
+    padding: 0.6rem;
+    width: 420px;
+}
+
+.log-in-bro-button:active {
+    font-weight: 600;
+    color: #e6d3b0;
+    background: #ce0d1b;
+    border: 2px solid #ce0d1b;
+    padding: 0.6rem;
+    width: 420px;
+}
+
+.log-in-bro {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 4rem;
+    line-height: 90%;
+}
+
+.log-out-bro-button {
+    font-weight: 600;
+    color: #57534c;
+    background: none;
+    border: 2px solid #57534c;
+    padding: 0.6rem;
+}
+
+.log-out-bro-button:hover {
+    font-weight: 600;
+    color: #e6d3b0;
+    background: #57534c;
+    border: 2px solid #57534c;
+    padding: 0.6rem;
+}
+
+.log-out-bro-button:active {
+    font-weight: 600;
+    color: #e6d3b0;
+    background: #ce0d1b;
+    border: 2px solid #ce0d1b;
+    padding: 0.6rem;
 }

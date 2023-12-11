@@ -23,42 +23,44 @@ const AdminDashboard = () => {
     return (
         <>
             <div className={styles.dateStatusButtonsBox}>
-                <h5 className={styles.adminH4}>Dishes</h5>
+                {/* <h5 className={styles.adminH4}>Dishes</h5> */}
             </div>
             <div className={styles.tableContainer}>
                 <div className={styles.buttonsContainer}>
-                    <button
-                        className={
-                            dishFilter === "All"
-                                ? styles.activeButtonNewStyleAllActive
-                                : styles.activeButtonNewStyleAll
-                        }
-                        onClick={() => setDishFilter("All")}
-                    >
-                        ALL
-                    </button>
-                    <button
-                        className={
-                            dishFilter === "true"
-                                ? styles.activeButtonNewStyleOnlineActive
-                                : styles.activeButtonNewStyleOnline
-                        }
-                        onClick={() => setDishFilter("true")}
-                    >
-                        Online
-                    </button>
-                    <button
-                        className={
-                            dishFilter === "false"
-                                ? styles.activeButtonNewStyleOfflineActive
-                                : styles.activeButtonNewStyleOffline
-                        }
-                        onClick={() => setDishFilter("false")}
-                    >
-                        Offline
-                    </button>
+                    <div className="dashboard-dishes-buttons-fixed">
+                        <button
+                            className={
+                                dishFilter === "All"
+                                    ? styles.activeButtonNewStyleAllActive
+                                    : styles.activeButtonNewStyleAll
+                            }
+                            onClick={() => setDishFilter("All")}
+                        >
+                            ALL
+                        </button>
+                        <button
+                            className={
+                                dishFilter === "true"
+                                    ? styles.activeButtonNewStyleOnlineActive
+                                    : styles.activeButtonNewStyleOnline
+                            }
+                            onClick={() => setDishFilter("true")}
+                        >
+                            Online
+                        </button>
+                        <button
+                            className={
+                                dishFilter === "false"
+                                    ? styles.activeButtonNewStyleOfflineActive
+                                    : styles.activeButtonNewStyleOffline
+                            }
+                            onClick={() => setDishFilter("false")}
+                        >
+                            Offline
+                        </button>
+                    </div>
                 </div>
-                <div>
+                <div className="dashboard-dishes-list">
                     {dishes
                         .filter((item) => {
                             if (dishFilter === "All") return true;
@@ -130,7 +132,7 @@ const AdminDashboard = () => {
                                 <div className="dish-price">
                                     <p>5,90€</p>
                                 </div>
-                                <div>
+                                <div className="dashboard-buttons-status-add-remove">
                                     <button
                                         style={{ pointerEvents: "none" }}
                                         className={`status-button-${
@@ -143,12 +145,14 @@ const AdminDashboard = () => {
                                             ? "Online"
                                             : "Offline"}
                                     </button>
-                                    <button className="status-button-check-on">
-                                        ✔ Add
-                                    </button>
-                                    <button className="status-button-check-off">
-                                        X Remove
-                                    </button>
+                                    <div className="dashboard-buttons-add-remove">
+                                        <button className="status-button-check-on">
+                                            ✔ Add
+                                        </button>
+                                        <button className="status-button-check-off">
+                                            X Remove
+                                        </button>
+                                    </div>
                                 </div>
                             </li>
                         ))}

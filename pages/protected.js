@@ -13,7 +13,7 @@ export default function Protected() {
                 {/* <DishAdmin className="dish-list-container-admin" />
                 <h2>------- Admin Dashboard Test -------</h2> */}
                 <div className="admin-dashboard-desktop">
-                    <div>
+                    <div className="admin-dashboard-fixed">
                         <Image
                             src="/harissa_logo.svg"
                             alt="Harissa Logo"
@@ -40,7 +40,10 @@ export default function Protected() {
                                     height={100}
                                     style={{ borderRadius: "50%" }}
                                 />
-                                <button onClick={() => signOut()}>
+                                <button
+                                    className="log-out-bro-button"
+                                    onClick={() => signOut()}
+                                >
                                     Sign Out
                                 </button>
                             </div>
@@ -66,7 +69,7 @@ export default function Protected() {
                 </Link>
             </div>
             <div className="log-in-bro">
-                <h3>log in, bro!</h3>
+                <h6>You need to log in!</h6>
                 <button className="log-in-bro-button" onClick={() => signIn()}>
                     Sign in
                 </button>
