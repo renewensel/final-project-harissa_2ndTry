@@ -3,7 +3,12 @@ const withTM = require("next-transpile-modules")([
     "leaflet",
 ]);
 
-module.exports = withTM({
+// Define your nextConfig here
+const nextConfig = {
+    env: {
+        GITHUB_ID: process.env.GITHUB_ID,
+        GITHUB_SECRET: process.env.GITHUB_SECRET,
+    },
     compiler: {
         styledComponents: true,
     },
@@ -49,6 +54,14 @@ module.exports = withTM({
         ];
     },
     images: {
-        domains: ["renewensel.com"],
+        domains: [
+            "renewensel.com",
+            "github.com",
+            "authjs.dev",
+            "avatars.githubusercontent.com",
+            "authjs.dev/img/providers/github.svg",
+        ],
     },
-});
+};
+
+module.exports = withTM(nextConfig);

@@ -1,0 +1,23 @@
+/* DishAdminCard.module.css */
+.dishListBoxAdmin {
+    list-style: none;
+    padding: 0;
+}
+
+.dateStatusButtonsBox {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.menuH4Admin {
+    font-family: Arial;
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+.buttonStatusAdminBox {
+    display: flex;
+}
+
+/* Add more styles as needed for your specific layout and design */
