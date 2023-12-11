@@ -78,29 +78,40 @@ export default function SwiperSlider() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="swiper-slide-style">
-                        <div className="dish-card-front">
-                            <Image
-                                src="/harissa-laden-2.png"
-                                width={680}
-                                height={430}
-                            />
-                            {/* <Image
+                        {/* <Image
                                 src="/polaroid-harissa-1.png"
                                 width={550}
                                 height={550}
                             /> */}
+                        <div className="front-site-2">
+                            <div>
+                                <p className="welcome-text-site-2 welcome-text-box">
+                                    With friendly service, a beautiful ambience,
+                                    quality and the option to take away, you can
+                                    choose between four different dishes of
+                                    oriental cuisine every day.
+                                </p>
+                            </div>
+                            <div className="pad-right">
+                                <h3 className="heading-front-2">
+                                    Harissa Oriental Cuisine
+                                </h3>
+                                <p>Brückenstr. 10a, 10179 Berlin</p>
+                            </div>
+
+                            <div>
+                                <h3 className="heading-front-2">
+                                    opening hours
+                                </h3>
+                                <p>Mon - Fri: 11:00 - 14:45</p>
+                            </div>
                         </div>
-                        <div className="heading-front-1">
-                            <h4>
-                                <b>Harissa Oriental Cuisine</b>
-                                <br />
-                                Brückenstr. 10a, 10179 Berlin
-                                <br />
-                                <br />
-                                opening hours
-                                <br />
-                                Mon - Fri: 11:00 - 14:45
-                            </h4>
+                        <div className="laden-card-front-2">
+                            <Image
+                                src="/harissa-laden-4.png"
+                                width={613}
+                                height={460}
+                            />
                         </div>
                     </div>
                 </SwiperSlide>
