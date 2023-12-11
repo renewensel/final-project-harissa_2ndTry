@@ -655,3 +655,57 @@ h4 {
 .footer-menu {
     line-height: 1.3rem;
 }
+
+.heading-front-2 {
+    font-size: 1.2rem;
+    border-bottom: 0;
+}
+
+.heading-front-3 {
+    font-size: 1.2rem;
+    border-bottom: 0;
+}
+
+.front-site-2 {
+    /* line-height: 1; */
+    font-size: 1.4rem;
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: left;
+    min-width: 300px;
+}
+
+.laden-card-front-2 {
+    display: flex;
+    font-size: 1rem;
+    line-height: 1.4rem;
+    padding: 2rem;
+    /* border: 2px solid #e10e1e; */
+    border-radius: 8px;
+    /* background-color: rgb(206, 13, 26, 4%); */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-text-site-2 {
+    font-size: 1.6rem;
+    line-height: 2rem;
+    min-width: 300px;
+}
+
+.welcome-text-site-box {
+    padding-bottom: 2rem;
+}
+
+.welcome-text-box {
+    padding-bottom: 2rem;
+}
+
+.pad-right {
+    padding-right: 1.4rem;
+}
