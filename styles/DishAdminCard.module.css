@@ -12,7 +12,7 @@
 
 .menuH4Admin {
     font-family: Arial;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 300;
 }
 
@@ -20,4 +20,8 @@
     display: flex;
 }
 
+.spanDishesMenu {
+    font-family: Arial;
+    font-size: 0.8rem;
+}
 /* Add more styles as needed for your specific layout and design */

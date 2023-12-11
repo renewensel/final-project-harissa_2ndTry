@@ -5,6 +5,7 @@ import DishToggle from "@/components/DishToggle"; // Add this line
 import DishAdminCard from "@/components/DishAdminCard";
 import DishAdmin from "@/components/DishAdmin";
 import AdminDashboard from "@/components/AdminDashboard";
+import DishIcon from "@/components/DishList/DishIcon";
 
 export default function Protected() {
     const { data: session } = useSession();
@@ -42,8 +43,8 @@ export default function Protected() {
                         <button onClick={() => signOut()}>Sign Out</button>
                     </div>
                 </div>
-                <DishAdmin className="dish-list-container-admin" />
-                <h2>------- Admin Dashboard Test -------</h2>
+                {/* <DishAdmin className="dish-list-container-admin" />
+                <h2>------- Admin Dashboard Test -------</h2> */}
                 <AdminDashboard className="dish-list-container-admin" />
             </div>
         );
