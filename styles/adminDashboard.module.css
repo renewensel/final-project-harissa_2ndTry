@@ -13,9 +13,10 @@
 
 .table th,
 .table td {
-    border: 1px solid #ddd;
+    /* border: 1px solid #ddd; */
     padding: 8px;
     text-align: left;
+    border-bottom: 1px solid #b6ad9c;
 }
 
 .table th {
@@ -133,4 +134,10 @@
     margin-right: 0.3rem;
     letter-spacing: 0.1rem;
     text-align: center;
+}
+
+.ingredients {
+    font-size: 0.9rem; /* Adjust the font size as needed */
+    color: #555; /* Adjust the color as needed */
+    margin-top: 5px; /* Adjust the margin as needed */
 }
