@@ -705,7 +705,6 @@ h4 {
     z-index: 1;
     top: 420px;
     left: 24px;
-    /* background-color: grey; */
     backdrop-filter: blur(20px);
     padding: 1rem;
     width: 230px;
