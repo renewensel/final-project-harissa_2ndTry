@@ -26,41 +26,51 @@ const AdminDashboard = () => {
                 {/* <h5 className={styles.adminH4}>Dishes</h5> */}
             </div>
             <div className={styles.tableContainer}>
-                <div className={styles.buttonsContainer}>
-                    <div className="dashboard-dishes-buttons-fixed">
-                        <button
-                            className={
-                                dishFilter === "All"
-                                    ? styles.activeButtonNewStyleAllActive
-                                    : styles.activeButtonNewStyleAll
-                            }
-                            onClick={() => setDishFilter("All")}
-                        >
-                            ALL
-                        </button>
-                        <button
-                            className={
-                                dishFilter === "true"
-                                    ? styles.activeButtonNewStyleOnlineActive
-                                    : styles.activeButtonNewStyleOnline
-                            }
-                            onClick={() => setDishFilter("true")}
-                        >
-                            Online
-                        </button>
-                        <button
-                            className={
-                                dishFilter === "false"
-                                    ? styles.activeButtonNewStyleOfflineActive
-                                    : styles.activeButtonNewStyleOffline
-                            }
-                            onClick={() => setDishFilter("false")}
-                        >
-                            Offline
-                        </button>
-                    </div>
-                </div>
                 <div className="dashboard-dishes-list">
+                    <div className={styles.buttonsContainer}>
+                        <div className="dashboard-dishes-buttons-fixed">
+                            <div className="admin-dashboard-date">
+                                <b>DISHES</b>{" "}
+                                <span className="admin-dashboard-menu-styles-1">
+                                    ➔ MENU FROM{" "}
+                                </span>
+                                <b>MON, DEC 11 - FRI, DEC 15</b>
+                            </div>
+
+                            <div>
+                                <button
+                                    className={
+                                        dishFilter === "All"
+                                            ? styles.activeButtonNewStyleAllActive
+                                            : styles.activeButtonNewStyleAll
+                                    }
+                                    onClick={() => setDishFilter("All")}
+                                >
+                                    ALL
+                                </button>
+                                <button
+                                    className={
+                                        dishFilter === "true"
+                                            ? styles.activeButtonNewStyleOnlineActive
+                                            : styles.activeButtonNewStyleOnline
+                                    }
+                                    onClick={() => setDishFilter("true")}
+                                >
+                                    Online
+                                </button>
+                                <button
+                                    className={
+                                        dishFilter === "false"
+                                            ? styles.activeButtonNewStyleOfflineActive
+                                            : styles.activeButtonNewStyleOffline
+                                    }
+                                    onClick={() => setDishFilter("false")}
+                                >
+                                    Offline
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                     {dishes
                         .filter((item) => {
                             if (dishFilter === "All") return true;
