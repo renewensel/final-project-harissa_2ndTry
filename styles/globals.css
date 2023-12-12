@@ -499,7 +499,7 @@ h4 {
     /* padding-bottom: 4rem; */
     background-color: rgb(64, 58, 48, 15%);
     padding: 1rem;
-    border-radius: 12px;
+    border-radius: 4px;
     /* width: 1040px; */
     /* padding-bottom: 5rem; */
     flex-wrap: nowrap;
@@ -686,8 +686,8 @@ h4 {
 .admin-dashboard-fixed {
     left: 24px;
     position: fixed;
-    height: 100vh;
-    width: 240px;
+    height: 400px;
+    width: 230px;
 }
 
 .dashboard-buttons-status-add-remove {
@@ -702,13 +702,21 @@ h4 {
 
 .dashboard-dishes-buttons-fixed {
     position: fixed;
-    z-index: 1333;
-    background-color: grey;
+    z-index: 1;
+    top: 420px;
+    left: 24px;
+    /* background-color: grey; */
+    backdrop-filter: blur(20px);
+    padding: 1rem;
+    width: 230px;
+    border: 1px solid grey;
+    border-radius: 4px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .dashboard-dishes-list {
     position: absolute;
-    top: 80px;
+    /* top: 10px; */
 }
 
 .log-in-bro {
@@ -784,4 +792,16 @@ h4 {
     background: #ce0d1b;
     border: 2px solid #ce0d1b;
     padding: 0.6rem;
+}
+
+.admin-dashboard-date {
+    font-size: 0.9rem;
+    padding-bottom: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.admin-dashboard-menu-styles-1 {
+    font-size: 0.7rem;
 }
