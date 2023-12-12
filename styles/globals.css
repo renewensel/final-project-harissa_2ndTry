@@ -702,7 +702,7 @@ h4 {
 
 .dashboard-dishes-buttons-fixed {
     position: fixed;
-    z-index: 1333;
+    z-index: 1;
     background-color: grey;
 }
 
