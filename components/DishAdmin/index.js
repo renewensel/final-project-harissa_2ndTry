@@ -1,3 +1,4 @@
+// Import necessary libraries and components
 import useSWR from "swr";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -70,6 +71,7 @@ export default function DishCard() {
         return <div>Loading...</div>;
     }
 
+    // Format date range for display
     const { startOfWeek, endOfWeek } = getRandomDateInCurrentWeek();
     const formattedStartDate = startOfWeek?.toLocaleDateString("en-US", {
         weekday: "short",
@@ -85,6 +87,7 @@ export default function DishCard() {
     });
     const dateRange = `${formattedStartDate} - ${formattedEndDate}`;
 
+    // Filter dishes based on the selected filter
     const filteredDishes =
         filter === "All"
             ? data
@@ -175,27 +178,31 @@ export default function DishCard() {
                             </div>
 
                             <div className="dish-list-name-ingredients-spaces">
-                                <p className="dishes-dish-name">
+                                <div className="dishes-dish-name">
                                     {dish.dish}&nbsp;
-                                    <DishIcon
-                                        type="meat"
-                                        isTrue={dish.ingredientsIcons.meat}
-                                    />
-                                    <DishIcon
-                                        type="vegetarian"
-                                        isTrue={
-                                            dish.ingredientsIcons.vegetarian
-                                        }
-                                    />
-                                    <DishIcon
-                                        type="vegan"
-                                        isTrue={dish.ingredientsIcons.vegan}
-                                    />
-                                </p>
+                                    <span>
+                                        <DishIcon
+                                            type="meat"
+                                            isTrue={dish.ingredientsIcons.meat}
+                                        />
+                                        <DishIcon
+                                            type="vegetarian"
+                                            isTrue={
+                                                dish.ingredientsIcons.vegetarian
+                                            }
+                                        />
+                                        <DishIcon
+                                            type="vegan"
+                                            isTrue={dish.ingredientsIcons.vegan}
+                                        />
+                                    </span>
+                                </div>
 
-                                <p className="dish-ingredients">
-                                    {dish.ingredients}
-                                </p>
+                                <div>
+                                    <p className="dish-ingredients">
+                                        {dish.ingredients}
+                                    </p>
+                                </div>
                             </div>
                             <div className="dish-price">
                                 <p>5,90€</p>
@@ -206,7 +213,11 @@ export default function DishCard() {
                                     className={`status-button-${
                                         dish.isShown ? "online" : "offline"
                                     }`}
-                                    onClick={() => handleShowDish(dish.id)}
+                                    onClick={() =>
+                                        dish.isShown
+                                            ? handleShowDish(dish.id)
+                                            : handleHideDish(dish.id)
+                                    }
                                 >
                                     {dish.isShown ? "Online" : "Offline"}
                                 </button>

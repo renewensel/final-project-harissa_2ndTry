@@ -1,168 +1,163 @@
-// pages/index.js
+// components/AdminDashboard/index.js
 import useSWR from "swr";
 import { useState } from "react";
 import Image from "next/image";
-
+import DishIcon from "../DishList/DishIcon";
 import styles from "@/styles/adminDashboard.module.css";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const AdminDashboard = () => {
     const { data: dishes, error: dishError } = useSWR("/api/dishes", fetcher);
-    const { data: drinks, error: drinkError } = useSWR("/api/drinks", fetcher);
 
     const [dishFilter, setDishFilter] = useState("All");
-    const [drinkFilter, setDrinkFilter] = useState("All");
 
-    if (dishError || drinkError) {
+    if (dishError) {
         return <div>Error loading data</div>;
     }
 
-    if (!dishes || !drinks) {
+    if (!dishes) {
         return <div>Loading...</div>;
     }
-
-    const renderTable = (data, title, filter, setFilter) => (
-        <div className={styles.tableContainer}>
-            <h2>{title}</h2>
-            <div className={styles.buttonsContainer}>
-                <button
-                    className={
-                        filter === "All"
-                            ? styles.activeButtonNewStyleAllActive
-                            : styles.activeButtonNewStyleAll
-                    }
-                    onClick={() => setFilter("All")}
-                >
-                    ALL
-                </button>
-                <button
-                    className={
-                        filter === "true"
-                            ? styles.activeButtonNewStyleOnlineActive
-                            : styles.activeButtonNewStyleOnline
-                    }
-                    onClick={() => setFilter("true")}
-                >
-                    Online
-                </button>
-                <button
-                    className={
-                        filter === "false"
-                            ? styles.activeButtonNewStyleOfflineActive
-                            : styles.activeButtonNewStyleOffline
-                    }
-                    onClick={() => setFilter("false")}
-                >
-                    Offline
-                </button>
-            </div>
-            <table className={styles.table}>
-                <tbody>
-                    {data
-                        .filter((item) => {
-                            if (filter === "All") return true;
-                            return String(item.isShown) === filter;
-                        })
-                        .map((item) => (
-                            <tr key={item._id}>
-                                <td>
-                                    <Image
-                                        src={
-                                            title === "Dishes"
-                                                ? item.dishImage
-                                                : item.drinkImage
-                                        }
-                                        alt={
-                                            title === "Dishes"
-                                                ? item.dish
-                                                : item.drink
-                                        }
-                                        width={title === "Dishes" ? 100 : 45}
-                                        height={100}
-                                    />
-                                </td>
-                                <td>{item.dish || item.drink}</td>
-                                {title === "Dishes" && (
-                                    <td className={styles.ingredients}>
-                                        {item.ingredients}
-                                    </td>
-                                )}
-                                <td>{item.isShown ? "Online" : "Offline"}</td>
-                            </tr>
-                        ))}
-                </tbody>
-            </table>
-        </div>
-    );
 
     return (
         <>
             <div className={styles.dateStatusButtonsBox}>
-                <h5 className={styles.adminH4}>Dishes</h5>
-                <h4
-                    className={styles.menueH4Admin}
-                    href="/dishes"
-                    alt="weekly-menu"
-                >
-                    <span
-                        style={{
-                            fontFamily: "Arial",
-                            fontSize: "1.1rem",
-                            fontWeight: 300,
-                        }}
-                    >
-                        ➔ &nbsp;Menu from{" "}
-                    </span>
-                    <span
-                        style={{
-                            fontFamily: "Arial",
-                            fontSize: "1.1rem",
-                            fontWeight: 600,
-                        }}
-                    >
-                        Mon, Dec 11, 2023 - Fri, Dec 15, 2023
-                    </span>
-                </h4>
-                <div className={styles.buttonStatusAdminBox}>
-                    {/* <button className={styles.adminDashboardButton}>All</button>
-                    <button className={styles.adminDashboardButton}>
-                        Online
-                    </button>
-                    <button className={styles.adminDashboardButton}>
-                        Offline
-                    </button> */}
+                {/* <h5 className={styles.adminH4}>Dishes</h5> */}
+            </div>
+            <div className={styles.tableContainer}>
+                <div className={styles.buttonsContainer}>
+                    <div className="dashboard-dishes-buttons-fixed">
+                        <button
+                            className={
+                                dishFilter === "All"
+                                    ? styles.activeButtonNewStyleAllActive
+                                    : styles.activeButtonNewStyleAll
+                            }
+                            onClick={() => setDishFilter("All")}
+                        >
+                            ALL
+                        </button>
+                        <button
+                            className={
+                                dishFilter === "true"
+                                    ? styles.activeButtonNewStyleOnlineActive
+                                    : styles.activeButtonNewStyleOnline
+                            }
+                            onClick={() => setDishFilter("true")}
+                        >
+                            Online
+                        </button>
+                        <button
+                            className={
+                                dishFilter === "false"
+                                    ? styles.activeButtonNewStyleOfflineActive
+                                    : styles.activeButtonNewStyleOffline
+                            }
+                            onClick={() => setDishFilter("false")}
+                        >
+                            Offline
+                        </button>
+                    </div>
+                </div>
+                <div className="dashboard-dishes-list">
+                    {dishes
+                        .filter((item) => {
+                            if (dishFilter === "All") return true;
+                            return String(item.isShown) === dishFilter;
+                        })
+                        .map((item) => (
+                            <li
+                                key={item._id}
+                                className={`list dish-li ${
+                                    String(item.isShown) === "false"
+                                        ? styles.hiddenDish
+                                        : ""
+                                }`}
+                            >
+                                <div className="default-dish-image">
+                                    <Image
+                                        src={item.dishImage}
+                                        alt={item.dish}
+                                        width={100}
+                                        height={100}
+                                    />
+                                </div>
+                                <div>
+                                    {Object.entries(item.flavour)
+                                        .filter(
+                                            ([key, value]) => value === true
+                                        )
+                                        .map(([key]) => (
+                                            <p
+                                                key={key}
+                                                className="badge"
+                                                style={{ fontSize: "0.7rem" }}
+                                            >
+                                                {key}
+                                            </p>
+                                        ))}
+                                </div>
+                                <div className="dish-list-name-ingredients-spaces">
+                                    <div className="dishes-dish-name">
+                                        {item.dish}&nbsp;
+                                        <span>
+                                            <DishIcon
+                                                type="meat"
+                                                isTrue={
+                                                    item.ingredientsIcons.meat
+                                                }
+                                            />
+                                            <DishIcon
+                                                type="vegetarian"
+                                                isTrue={
+                                                    item.ingredientsIcons
+                                                        .vegetarian
+                                                }
+                                            />
+                                            <DishIcon
+                                                type="vegan"
+                                                isTrue={
+                                                    item.ingredientsIcons.vegan
+                                                }
+                                            />
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <p className="dish-ingredients">
+                                            {item.ingredients}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="dish-price">
+                                    <p>5,90€</p>
+                                </div>
+                                <div className="dashboard-buttons-status-add-remove">
+                                    <button
+                                        style={{ pointerEvents: "none" }}
+                                        className={`status-button-${
+                                            String(item.isShown) === "true"
+                                                ? "online"
+                                                : "offline"
+                                        }`}
+                                    >
+                                        {String(item.isShown) === "true"
+                                            ? "Online"
+                                            : "Offline"}
+                                    </button>
+                                    <div className="dashboard-buttons-add-remove">
+                                        <button className="status-button-check-on">
+                                            ✔ Add
+                                        </button>
+                                        <button className="status-button-check-off">
+                                            X Remove
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                        ))}
                 </div>
             </div>
-            {renderTable(dishes, "Dishes", dishFilter, setDishFilter)}
-            <div className={styles.dateStatusButtonsBox}>
-                {/* <h5 className={styles.adminH4}>Dishes</h5> */}
-                <h4
-                    className={styles.menueH4Admin}
-                    href="/dishes"
-                    alt="weekly-menu"
-                >
-                    <span
-                        style={{
-                            fontFamily: "Arial",
-                            fontSize: "1.1rem",
-                            fontWeight: 300,
-                        }}
-                    >
-                        ➔ &nbsp;Menu from{" "}
-                    </span>
-                    <span
-                        style={{
-                            fontFamily: "Arial",
-                            fontSize: "1.1rem",
-                            fontWeight: 600,
-                        }}
-                    >
-                        Mon, Dec 11, 2023 - Fri, Dec 15, 2023
-                    </span>
-                </h4>
-            </div>
-            {renderTable(drinks, "Drinks", drinkFilter, setDrinkFilter)}
         </>
     );
 };
